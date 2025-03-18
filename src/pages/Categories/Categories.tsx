@@ -1,13 +1,12 @@
 import React from "react"
 import { PageContainer } from "./styles"
 
-const Home: React.FC = () => {
+const Categories: React.FC = () => {
   return (
     <PageContainer>
-      <h1>MigrantsGermany</h1>
-      <p>asdasd</p>
+      <h1>Categories</h1>
     </PageContainer>
   )
 }
 
-export default Home
+export default Categories
