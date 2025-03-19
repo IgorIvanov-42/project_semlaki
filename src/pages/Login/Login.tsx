@@ -1,13 +1,12 @@
 import React from "react"
 import { PageContainer } from "./styles"
 
-const Home: React.FC = () => {
+const Login: React.FC = () => {
   return (
     <PageContainer>
-      <h1>Home</h1>
-      <p>Text</p>
+      <h1>Login</h1>
     </PageContainer>
   )
 }
 
-export default Home
+export default Login

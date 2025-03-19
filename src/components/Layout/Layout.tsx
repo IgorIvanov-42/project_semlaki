@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   LayoutWrapper,
   Header,
@@ -6,46 +6,50 @@ import {
   Logo,
   Title,
   NavContainer,
-  NavItem,
+  AuthNav,
   FooterText,
-} from "./styles"
-
-import { NavLink } from "react-router-dom"
-import { LayoutProps } from "./types"
+} from "./styles";
+import { NavLink } from "react-router-dom";
+import { LayoutProps } from "./types";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <LayoutWrapper>
       <Header>
-        <Logo to="/">🌍</Logo>
-        <Title>MigrantsGermany</Title>
         <NavContainer>
-          <NavItem to={""}>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Home
-            </NavLink>
-          </NavItem>
-          <NavItem to={""}>
-            <NavLink
-              to="/categories"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Categories
-            </NavLink>
-          </NavItem>
+          <Logo to="/">🌍</Logo>
+          <Title>MigrantsGermany</Title>
         </NavContainer>
+        <AuthNav>
+          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+            Home
+          </NavLink>
+          <NavLink to="/categories" className={({ isActive }) => (isActive ? "active" : "")}>
+            Categories
+          </NavLink>
+          <NavLink to="/services" className={({ isActive }) => (isActive ? "active" : "")}>
+            Services
+          </NavLink>
+          <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>
+            Login
+          </NavLink>
+          <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : "")}>
+            Register
+          </NavLink>
+        </AuthNav>
       </Header>
+
       {children}
+
       <Footer>
         <Logo to="/">🌍</Logo>
         <FooterText>2025</FooterText>
-        <NavItem to={""}>Contacts</NavItem>
+        <NavLink to="/contacts">Contacts: itmasterlina@gmail.com</NavLink>
       </Footer>
     </LayoutWrapper>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
+
+

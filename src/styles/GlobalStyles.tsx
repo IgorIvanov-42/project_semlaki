@@ -1,3 +1,33 @@
+/*import { Global, css } from "@emotion/react"
+
+const GlobalStyles = () => (
+  <Global
+    styles={css`
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-image: url("/src/assets/background.JPG");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        // min-height: 100vh;
+      }
+
+      #root {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        font-family: "Arial", sans-serif;
+      }
+    `}
+  />
+)
+
+export default GlobalStyles */
+
 import { Global, css } from "@emotion/react"
 
 const globalStyles = css`
@@ -39,4 +69,4 @@ function GlobalStyles() {
   return <Global styles={globalStyles} />
 }
 
-export default GlobalStyles
+export default GlobalStyles 
