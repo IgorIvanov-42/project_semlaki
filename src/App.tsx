@@ -4,8 +4,10 @@ import Layout from "components/Layout/Layout"
 import Home from "pages/Home/Home"
 import Categories from "pages/Categories/Categories"
 import Login from "pages/Login/Login"
-import Register from "pages/Register/Register"
+
 import Services from "pages/Services/Services"
+import RegistrationForm from "components/RegistrationForm/RegistrationForm"
+import LoginForm from "components/LoginForm/LoginForm"
 
 const App = () => {
   return (
@@ -16,8 +18,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LoginForm/>} />
+          <Route path="/register" element={<RegistrationForm />} />
         </Routes>
       </Layout>
     </BrowserRouter>

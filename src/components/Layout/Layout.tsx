@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react"
 import {
   LayoutWrapper,
   Header,
@@ -8,9 +8,9 @@ import {
   NavContainer,
   AuthNav,
   FooterText,
-} from "./styles";
-import { NavLink } from "react-router-dom";
-import { LayoutProps } from "./types";
+} from "./styles"
+import { NavLink } from "react-router-dom"
+import type { LayoutProps } from "./types"
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
@@ -21,19 +21,34 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <Title>MigrantsGermany</Title>
         </NavContainer>
         <AuthNav>
-          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Home
           </NavLink>
-          <NavLink to="/categories" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/categories"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Categories
           </NavLink>
-          <NavLink to="/services" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/services"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Services
           </NavLink>
-          <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/login"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Login
           </NavLink>
-          <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/register"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Register
           </NavLink>
         </AuthNav>
@@ -47,9 +62,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <NavLink to="/contacts">Contacts: itmasterlina@gmail.com</NavLink>
       </Footer>
     </LayoutWrapper>
-  );
-};
+  )
+}
 
-export default Layout;
-
-
+export default Layout
