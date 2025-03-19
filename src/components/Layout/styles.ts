@@ -1,13 +1,14 @@
 import styled from "@emotion/styled"
 import { NavLink } from "react-router-dom"
 
+// Обёртка для всей страницы
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 100%;
 `
 
+// Хедер
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
@@ -18,43 +19,45 @@ export const Header = styled.header`
   width: 100%;
 `
 
+// Логотип (увеличен)
+export const Logo = styled(NavLink)`
+  font-size: 36px; /* размер логотип */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 20px;
+`
+
+// Название сайта (слева, рядом с логотипом)
 export const Title = styled.h1`
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
 `
 
-export const Logo = styled(NavLink)`
-  font-size: 24px;
-  color: white;
-  text-decoration: none;
-`
-
-export const NavContainer = styled.nav`
+// Контейнер для логотипа и названия
+export const NavContainer = styled.div`
   display: flex;
+  align-items: center;
   gap: 20px;
 `
 
-export const NavItem = styled(NavLink)`
-  color: black;
-  font-size: 18px;
-  text-decoration: none;
-  cursor: pointer;
-  & .active {
+// Навигация (Home, Categories, Services, Login, Register)
+export const AuthNav = styled.nav`
+  display: flex;
+  gap: 20px;
+
+  & a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  & a.active {
     text-decoration: underline;
   }
 `
 
-export const Main = styled.main`
-  flex: 1;
-  background: red;
-  //background: url("/assets/background.JPG") no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
- 
-`
-
+// Футер
 export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
@@ -63,17 +66,11 @@ export const Footer = styled.footer`
   background: yellow;
   color: black;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin-top: auto;
 `
 
+// Текст футера
 export const FooterText = styled.p`
   font-size: 18px;
   color: black;
-`
-export const FooterNav = styled.p`
-  font-size: 18px;
-  color: black;
-  cursor: pointer;
 `
