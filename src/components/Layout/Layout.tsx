@@ -9,8 +9,9 @@ import {
   NavItem,
   FooterText,
 } from "./styles"
-import { LayoutProps } from "./types"
+
 import { NavLink } from "react-router-dom"
+import { LayoutProps } from "./types"
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
