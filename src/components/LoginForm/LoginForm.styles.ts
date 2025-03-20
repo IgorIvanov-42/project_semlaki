@@ -14,6 +14,7 @@ flex-direction: column;
 `
 export const MyForm = styled.form`
   background-color: #ffffff;
+  align-items: center;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -5,7 +5,7 @@ import Button from "components/Button/Button"
 import { Title } from "components/Layout/styles"
 import { Container } from "./LoginForm.styles"
 import { MyForm } from "components/RegistrationForm/RegistrationForm.styles"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 export default function LoginForm() {
   
   const [email, setEmail] = useState<string>("")
@@ -84,6 +84,7 @@ export default function LoginForm() {
           )}
           <Button text={"Send Form"} type={"submit"} />
         </MyForm>
+        <Link to="/forgot-password"><Button text={"Forgot your password? Reset it here."} />   </Link>
       </Container>
     </>
   )

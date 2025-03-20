@@ -1,18 +1,20 @@
-import React from "react"
+
 import { PageContainer, CategoriesGrid, CategoryCard } from "./styles"
 
 const categories = [
-  { title: "Услуги", description: "Поиск и предложение услуг." },
+  { title: "Знакомства/Общение", description: "Общение и новые знакомства." },
+  
+  { title: "Объявления", description: "Покупка и продажа вещей." },
+
+  { title: "Образование", description: " Курсы, учебные заведения вашего города" },
+
+  { title: "Медицина", description: "Врачи и медицинские услуги." },
   {
-    title: "Детский активитет",
+    title: "Досуг для детей",
     description: "Развлечения и кружки для детей.",
   },
-  { title: "Учёба/Репетиторы", description: "Репетиторство и курсы." },
-  { title: "Знакомства", description: "Общение и новые знакомства." },
-  { title: "Медицина", description: "Врачи и медицинские услуги." },
-  { title: "Объявления", description: "Покупка и продажа вещей." },
-  { title: "Бизнес/Финансы", description: "Финансовые услуги и инвестиции." },
-  { title: "Общение", description: "Форумы и группы по интересам." },
+
+  
 ]
 
 const Categories: React.FC = () => {

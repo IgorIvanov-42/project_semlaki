@@ -5,6 +5,7 @@ import Button from "components/Button/Button"
 import { useNavigate } from "react-router-dom"
 import { Title } from "components/Layout/styles"
 
+
 export default function RegistrationForm() {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [email, setEmail] = useState("")
@@ -14,6 +15,7 @@ export default function RegistrationForm() {
   const [passwordError, setPasswordError] = useState("")
   const [confirmPasswordError, setConfirmPasswordError] = useState("")
   const navigate = useNavigate();
+
   const handleTermsChange = () => {
     setAgreeToTerms(!agreeToTerms)
   }
@@ -57,12 +59,13 @@ export default function RegistrationForm() {
         
   }
   return (
+    
     <Container>
       <Title>Registration</Title>
       <MyForm onSubmit={handleSubmit}>
         
         <MyInput
-          label={"Your< Name"}
+          label={"Your Name"}
           placeholder={"Enter your name"}
           type={"text"}
           name={"name"}
@@ -126,6 +129,8 @@ export default function RegistrationForm() {
         </label>
         <Button text={"Register"} type={"submit"} />
       </MyForm>
+      
     </Container>
+    
   )
 }
