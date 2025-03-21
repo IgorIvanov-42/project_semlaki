@@ -1,11 +1,12 @@
-import React from "react"
+
+import CardServices from "components/CardService/CardServices"
 import { PageContainer } from "./styles"
 
 const Services: React.FC = () => {
   return (
     <PageContainer>
-      <h1>Services</h1>
-      <p>Здесь будут все доступные сервисы</p>
+      
+      <CardServices/>
     </PageContainer>
   )
 }

@@ -13,7 +13,8 @@ export default function RegistrationForm() {
   const [emailError, setEmailError] = useState("")
   const [passwordError, setPasswordError] = useState("")
   const [confirmPasswordError, setConfirmPasswordError] = useState("")
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+
   const handleTermsChange = () => {
     setAgreeToTerms(!agreeToTerms)
   }
@@ -22,7 +23,8 @@ export default function RegistrationForm() {
     return emailPattern.test(email)
   }
   const validatePassword = (password: string) => {
-    const passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()?=;:,.]).{8,}$/
+    const passwordPattern =
+      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()?=;:,.]).{8,}$/
     console.log(`Validating password: ${password}`)
     return passwordPattern.test(password)
   }
@@ -53,16 +55,14 @@ export default function RegistrationForm() {
       return
     }
     alert("Registration successful!")
-    navigate("/");
-        
+    navigate("/")
   }
   return (
     <Container>
       <Title>Registration</Title>
       <MyForm onSubmit={handleSubmit}>
-        
         <MyInput
-          label={"Your< Name"}
+          label={"Your Name"}
           placeholder={"Enter your name"}
           type={"text"}
           name={"name"}
@@ -116,7 +116,6 @@ export default function RegistrationForm() {
           onChange={e => setConfirmPassword(e.target.value)}
         />
         <label>
-          
           <input
             type="checkbox"
             checked={agreeToTerms}
