@@ -1,15 +1,21 @@
 import styled from "@emotion/styled"
 export const CardContainer = styled.div`
-  margin: 5%;
+  display: flex;
+  flex-direction: column; /* Устанавливаем вертикальное направление */
+  align-items: center; /* Центрируем карточки по горизонтали */
+  justify-content: center;
+  margin: 105%;
   padding: 0px;
   background-color: #f9f9f9;
 `
 export const Card = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
-  padding: 15px;
+  padding: 10px;
   width: 900px;
   max-width: 700px;
   height: 200px;
@@ -20,7 +26,6 @@ export const Card = styled.div`
   }
 `
 export const CardTitle = styled.h2`
-
   font-size: 1.5rem;
   margin: 15px;
   color: #333;
@@ -31,11 +36,11 @@ export const CardDescription = styled.p`
   margin-top: 5px;
 `
 export const MoreDetails = styled.p`
-align-self: flex-end;
-  color: #666; 
-  font-weight: bold; 
-  cursor: pointer; 
+  align-self: flex-end;
+  color: #666;
+  font-weight: bold;
+  cursor: pointer;
   padding: 10px;
   margin-top: auto;
-   font-size: 0.875rem;
+  font-size: 0.875rem;
 `

@@ -10,7 +10,7 @@ export const Container = styled.div`
   background-color: #fff;
 `
 export const Title = styled.h2`
-margin: auto;
+  margin: auto;
   text-align: center; /* Центрируем текст */
   margin-bottom: 0px;
 `

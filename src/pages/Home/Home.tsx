@@ -1,13 +1,7 @@
-
-import { PageContainer } from "./styles"
+import { PageContainer, Paragraph, Title } from "./styles"
 
 const Home: React.FC = () => {
-  return (
-    <PageContainer>
-      <h1>Home</h1>
-      <p>Text</p>
-    </PageContainer>
-  )
+  return <PageContainer></PageContainer>
 }
 
 export default Home

@@ -12,8 +12,6 @@ import TechnicalService from "components/ServiceOffers/TechnicalService/Technica
 import ChildcareService from "components/ServiceOffers/ChildcareService/ChildCareService"
 import TutoringService from "components/ServiceOffers/TutoringService/TutoringService"
 
-
-
 const App = () => {
   return (
     <BrowserRouter>
@@ -23,14 +21,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/login" element={<LoginForm/>} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegistrationForm />} />
-          <Route path="/forgot-password" element={<ForgotPasswordForm/>} />
+          <Route path="/forgot-password" element={<ForgotPasswordForm />} />
           <Route path="/translation-service" element={<TranslationService />} />
           <Route path="/technical-service" element={<TechnicalService />} />
           <Route path="/childcare" element={<ChildcareService />} />
           <Route path="/tutoring" element={<TutoringService />} />
-          
         </Routes>
       </Layout>
     </BrowserRouter>

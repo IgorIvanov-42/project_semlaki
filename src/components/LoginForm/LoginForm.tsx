@@ -7,18 +7,18 @@ import { Container } from "./LoginForm.styles"
 import { MyForm } from "components/RegistrationForm/RegistrationForm.styles"
 import { Link, useNavigate } from "react-router-dom"
 export default function LoginForm() {
-  
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [emailError, setEmailError] = useState<string>("")
   const [passwordError, setPasswordError] = useState<string>("")
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const validateEmail = (email: string): boolean => {
     const emailPattern = /^(?=.*[a-zA-Z])(?=.*@).{8,}$/
     return emailPattern.test(email)
   }
   const validatePassword = (password: string): boolean => {
-    const passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*().,;:?/]).{8,}$/
+    const passwordPattern =
+      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*().,;:?/]).{8,}$/
     return passwordPattern.test(password)
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -37,25 +37,16 @@ export default function LoginForm() {
       )
       return
     }
-    alert("Login successful!"); 
-       navigate("/");
-        };
+    alert("Login successful!")
+    navigate("/")
+  }
   return (
     <>
-      
-      
-      <Container >
-      <Title>Login Form</Title>
+      <Container>
+        <Title>Login Form</Title>
         <MyForm onSubmit={handleSubmit}>
-          
           <MyInput
-            label={"Your Login Name"}
-            placeholder={"Login"}
-            type={"text"}
-            name={"login"}
-          />
-          <MyInput
-            label={"Type Unique Email"}
+            label={" Email"}
             placeholder={"Email"}
             type={"email"}
             name={"email"}
@@ -69,7 +60,7 @@ export default function LoginForm() {
             </span>
           )}
           <MyInput
-            label={"Secret Password"}
+            label={" Password"}
             placeholder={"Password"}
             type={"password"}
             name={"password"}
@@ -84,7 +75,9 @@ export default function LoginForm() {
           )}
           <Button text={"Send Form"} type={"submit"} />
         </MyForm>
-        <Link to="/forgot-password"><Button text={"Forgot your password? Reset it here."} />   </Link>
+        <Link to="/forgot-password">
+          <Button text={"Forgot your password? Reset it here."} />{" "}
+        </Link>
       </Container>
     </>
   )

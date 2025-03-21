@@ -9,6 +9,7 @@ import {
   AuthNav,
   FooterText,
 } from "./styles"
+import logoImage from "../../assets/1.png"
 import { NavLink } from "react-router-dom"
 import type { LayoutProps } from "./types"
 
@@ -17,8 +18,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <LayoutWrapper>
       <Header>
         <NavContainer>
-          <Logo to="/">🌍</Logo>
-          <Title>MigrantsGermany</Title>
+          <img
+            src={logoImage}
+            alt="MigrantsGermany Logo"
+            style={{ height: "60px" }}
+          />
+          <Title>German Migrants</Title>
         </NavContainer>
         <AuthNav>
           <NavLink
@@ -32,12 +37,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Categories
-          </NavLink>
-          <NavLink
-            to="/services"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Services
           </NavLink>
           <NavLink
             to="/login"
@@ -57,7 +56,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {children}
 
       <Footer>
-        <Logo to="/">🌍</Logo>
+        <img
+          src={logoImage}
+          alt="MigrantsGermany Logo"
+          style={{ height: "60px" }}
+        />
         <FooterText>2025</FooterText>
         <NavLink to="/contacts">Contacts: itmasterlina@gmail.com</NavLink>
       </Footer>

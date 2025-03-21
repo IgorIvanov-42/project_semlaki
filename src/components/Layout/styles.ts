@@ -13,8 +13,8 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background: black;
+  padding: 10px;
+  background: rgb(120, 120, 0);
   color: white;
   width: 100%;
 `
@@ -62,8 +62,8 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background: yellow;
+  padding: 0px;
+  background: rgb(120, 120, 0);
   color: black;
   width: 100%;
   margin-top: auto;

@@ -21,8 +21,6 @@ export default function ForgotPasswordForm() {
     <>
       <Title>Password Recovery</Title>
       <Container>
-       
-
         <form onSubmit={handleSubmit}>
           <MyInput
             label={"Enter your email."}
