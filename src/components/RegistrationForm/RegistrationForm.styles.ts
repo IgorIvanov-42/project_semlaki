@@ -4,6 +4,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url("/src/assets/leuchtturm.jpg") no-repeat center center/cover;
   height: 100vh; /* Высота на всю высоту окна */
   width: 100%; /* Ширина на всю ширину окна */
   margin: 0; /* Убираем все внешние отступы */

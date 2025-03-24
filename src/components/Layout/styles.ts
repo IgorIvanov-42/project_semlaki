@@ -14,7 +14,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background: rgb(120, 120, 0);
+  background: rgba(120, 120, 0, 0.8); 
   color: white;
   width: 100%;
 `
@@ -62,11 +62,12 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px;
-  background: rgb(120, 120, 0);
+  padding: 10px;
+  background: rgba(120, 120, 0, 0.8);
   color: black;
   width: 100%;
   margin-top: auto;
+  flex-wrap: wrap;
 `
 
 // Текст футера

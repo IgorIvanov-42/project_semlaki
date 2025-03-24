@@ -10,13 +10,14 @@ export const PageContainer = styled.div`
   padding: 50px;
   color: white;
 `
-
 export const CategoriesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 320px);
   gap: 20px;
-  max-width: 1200px;
+  max-width: calc(4 * 320px + 3 * 20px);
   width: 100%;
+  justify-content: center;
+  margin: 0 auto;
 `
 
 export const CategoryCard = styled.div`
@@ -26,9 +27,15 @@ export const CategoryCard = styled.div`
   text-align: center;
   color: black;
   height: 350px;
+  width: 320px;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   img {
-    width: 200px;
+    width: 100%;
     height: 230px;
     object-fit: cover;
     border-radius: 8px;

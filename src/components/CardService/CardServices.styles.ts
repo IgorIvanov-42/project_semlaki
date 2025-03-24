@@ -1,46 +1,54 @@
 import styled from "@emotion/styled"
+
 export const CardContainer = styled.div`
   display: flex;
-  flex-direction: column; /* Устанавливаем вертикальное направление */
-  align-items: center; /* Центрируем карточки по горизонтали */
+  gap: 20px;
   justify-content: center;
-  margin: 105%;
-  padding: 0px;
-  background-color: #f9f9f9;
+  flex-wrap: wrap;
+  max-width: 100%;
 `
+
 export const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+  width: 250px;
+  background: white;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
-  padding: 10px;
-  width: 900px;
-  max-width: 700px;
-  height: 200px;
-  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
   }
 `
+
+export const CardImage = styled.img`
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+`
+
 export const CardTitle = styled.h2`
-  font-size: 1.5rem;
-  margin: 15px;
+  font-size: 20px;
+  margin: 10px 0;
   color: #333;
 `
+
 export const CardDescription = styled.p`
-  font-size: 1rem;
+  font-size: 14px;
   color: #666;
-  margin-top: 5px;
 `
-export const MoreDetails = styled.p`
-  align-self: flex-end;
-  color: #666;
-  font-weight: bold;
+
+export const MoreDetails = styled.button`
+  background-color: rgb(120, 120, 0);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  padding: 10px;
-  margin-top: auto;
-  font-size: 0.875rem;
+  &:hover {
+    background-color: rgb(100, 100, 0);
+  }
 `
+
+
+
