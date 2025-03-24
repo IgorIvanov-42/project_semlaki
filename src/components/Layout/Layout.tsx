@@ -3,7 +3,6 @@ import {
   LayoutWrapper,
   Header,
   Footer,
-  Logo,
   Title,
   NavContainer,
   AuthNav,
@@ -62,7 +61,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           style={{ height: "60px" }}
         />
         <FooterText>2025</FooterText>
-        <NavLink to="/contacts">Contacts: itmasterlina@gmail.com</NavLink>
+        <NavLink to="/contacts" style={{ whiteSpace: "nowrap" }}>
+          Contacts: itmasterlina@gmail.com
+        </NavLink>
       </Footer>
     </LayoutWrapper>
   )
