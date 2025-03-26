@@ -10,7 +10,8 @@ export const CardContainer = styled.div`
 
 export const Card = styled.div`
   width: 250px;
-  background: white;
+  //background: white;
+  background: rgba(255, 255, 255, 0.8); /* полупрозрачный фон */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -49,6 +50,3 @@ export const MoreDetails = styled.button`
     background-color: rgb(100, 100, 0);
   }
 `
-
-
-

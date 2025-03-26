@@ -11,7 +11,7 @@ import {
 const services = [
   {
     title: "Translation services",
-    description: "Find a translator for your documents and communication needs.",
+    description: "Find a translator for your documents.",
     path: "/translation-service",
     text: "More details",
     image: "/src/assets/background.jpg",
