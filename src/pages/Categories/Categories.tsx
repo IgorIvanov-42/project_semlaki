@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { PageContainer, CategoriesGrid, CategoryCard } from "./styles"
 
 const categories = [
-  { title: "Services", description: "", image: "/src/assets/services.webp" },
+  { title: "Services", description: "Services and announcements.", image: "/src/assets/services.webp" },
   { title: "Children's Leisure", description: "Entertainment and clubs for children.", image: "/src/assets/Childcare.jpg" },
   { title: "Announcements", description: "Buy and sell items.", image: "/src/assets/Translation.jpg" },
   { title: "Education", description: "Courses and educational institutions.", image: "/src/assets/images.jpg" },
