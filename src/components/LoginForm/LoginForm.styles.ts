@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 export const Container = styled.div`
 flex-direction: column;
-background: url("/src/assets/leuchtturm.jpg") no-repeat center center/cover;
+//background: url("/src/assets/leuchtturm.jpg") no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
