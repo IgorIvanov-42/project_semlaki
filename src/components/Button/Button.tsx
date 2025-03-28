@@ -1,24 +1,23 @@
 import { ButtonWrapper } from "./Button.styles"
 import type { ButtonProps } from "./ButtonProps"
-
 const Button: React.FC<ButtonProps> = ({
   type = "button",
-  text = "click!",
+  text,
   onClick = () => {},
   disabled = false,
-  variant = "primary" 
-  
+  variant = "primary",
+
+  children,
 }) => {
   return (
     <ButtonWrapper
       type={type}
       onClick={onClick}
       disabled={disabled}
-      variant={variant}
-      
+      variant={"primary"}
     >
-      
-      {text}
+      {text || children}
+      {/* Используем text или children */}
     </ButtonWrapper>
   )
 }

@@ -1,21 +1,26 @@
 import { useState } from "react"
-
 import MyInput from "components/MyInput/MyInput"
 import Button from "components/Button/Button"
-import { Title } from "components/Layout/styles"
 import { Container } from "./LoginForm.styles"
-import { MyForm } from "components/RegistrationForm/RegistrationForm.styles"
 import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "components/AuthProvider/AuthProvider"
+import { FormWrapper } from "components/MyForm/MyForm.styles"
+import { Title } from "components/LoginForm/LoginForm.styles"
+
 export default function LoginForm() {
+  const navigate = useNavigate()
+  const { login } = useAuth()
+
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [emailError, setEmailError] = useState<string>("")
   const [passwordError, setPasswordError] = useState<string>("")
-  const navigate = useNavigate()
+
   const validateEmail = (email: string): boolean => {
     const emailPattern = /^(?=.*[a-zA-Z])(?=.*@).{8,}$/
     return emailPattern.test(email)
   }
+
   const validatePassword = (password: string): boolean => {
     const passwordPattern =
       /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*().,;:?/]).{8,}$/
@@ -25,6 +30,7 @@ export default function LoginForm() {
     event.preventDefault()
     setEmailError("")
     setPasswordError("")
+
     if (!validateEmail(email)) {
       setEmailError(
         "Email must contain '@' and at least one letter, and be at least 8 characters long.",
@@ -37,6 +43,8 @@ export default function LoginForm() {
       )
       return
     }
+
+    login()
     alert("Login successful!")
     navigate("/")
   }
@@ -44,10 +52,10 @@ export default function LoginForm() {
     <>
       <Container>
         <Title>Login Form</Title>
-        <MyForm onSubmit={handleSubmit}>
+        <FormWrapper onSubmit={handleSubmit}>
           <MyInput
-            label={" Email"}
-            placeholder={"Email"}
+            label={"Enter your Email"}
+            placeholder={"e.g. example@mail.com"}
             type={"email"}
             name={"email"}
             value={email}
@@ -60,8 +68,10 @@ export default function LoginForm() {
             </span>
           )}
           <MyInput
-            label={" Password"}
-            placeholder={"Password"}
+            label={"Enter your  Password"}
+            placeholder={
+              "At least 8 characters, 1 uppercase, 1 number, 1 special character"
+            }
             type={"password"}
             name={"password"}
             value={password}
@@ -74,7 +84,7 @@ export default function LoginForm() {
             </span>
           )}
           <Button text={"Send Form"} type={"submit"} />
-        </MyForm>
+        </FormWrapper>
         <Link to="/forgot-password">
           <Button text={"Forgot your password? Reset it here."} />{" "}
         </Link>

@@ -1,9 +1,10 @@
 import MyInput from "components/MyInput/MyInput"
 import { useState } from "react"
-import { Container, MyForm } from "./RegistrationForm.styles"
+import { Container} from "./RegistrationForm.styles"
 import Button from "components/Button/Button"
-import { useNavigate } from "react-router-dom"
-import { Title } from "components/Layout/styles"
+import { Link, useNavigate } from "react-router-dom"
+import { Title } from "components/RegistrationForm/RegistrationForm.styles"
+import { FormWrapper } from "components/MyForm/MyForm.styles"
 
 export default function RegistrationForm() {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
@@ -58,44 +59,48 @@ export default function RegistrationForm() {
     navigate("/")
   }
   return (
+    <>
+  
     <Container>
-      <Title>Registration</Title>
-      <MyForm onSubmit={handleSubmit}>
+    <Title>Registration</Title>
+      <FormWrapper onSubmit={handleSubmit}>
         <MyInput
-          label={"Your Name"}
-          placeholder={"Enter your name"}
+          label={"Enter your First Name"}
+          placeholder={"e.g. First Name"}
           type={"text"}
           name={"name"}
         />
         <MyInput
-          label={"Your Last Name"}
-          placeholder={"Enter your last name"}
+          label={"Enter your Last Name"}
+          placeholder={"e.g. Last Name"}
           type={"text"}
           name={"lastName"}
         />
         {emailError && (
-          <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-            {" "}
-            {emailError}{" "}
+          <span style={{ color: "black", display: "block", minHeight: "20px" }}>
+            
+            {emailError}
           </span>
         )}
         <MyInput
-          label={"Email"}
-          placeholder={"Enter your email"}
+          label={"Enter your Email"}
+          placeholder={"e.g. user@example.com"}
           type={"email"}
           name={"email"}
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
         {passwordError && (
-          <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-            {" "}
-            {passwordError}{" "}
+          <span style={{ color: "black", display: "block", minHeight: "20px" }}>
+            
+            {passwordError}
           </span>
         )}
         <MyInput
           label={"Password"}
-          placeholder={"Enter your password"}
+          placeholder={
+            "The password does not meet security requirements."
+          }
           type={"password"}
           name={"password"}
           value={password}
@@ -103,8 +108,8 @@ export default function RegistrationForm() {
         />
         {confirmPasswordError && (
           <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-            {" "}
-            {confirmPasswordError}{" "}
+            
+            {confirmPasswordError}
           </span>
         )}
         <MyInput
@@ -121,10 +126,20 @@ export default function RegistrationForm() {
             checked={agreeToTerms}
             onChange={handleTermsChange}
           />
-          I agree to the terms of service
+          <Link
+            to="/terms"
+            style={{
+              marginLeft: "5px",
+              color: "black",
+              textDecoration: "underline",
+            }}
+          >
+            I agree to the terms of service
+          </Link>
         </label>
         <Button text={"Register"} type={"submit"} />
-      </MyForm>
+      </FormWrapper>
     </Container>
+    </>
   )
 }

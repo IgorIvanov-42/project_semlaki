@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
 import { NavLink } from "react-router-dom"
-
 // Обёртка для всей страницы
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -9,7 +8,6 @@ export const LayoutWrapper = styled.div`
   width: 100%;
   // минимальная высота экрана
 `
-
 // Хедер
 export const Header = styled.header`
   display: flex;
@@ -29,31 +27,40 @@ export const Logo = styled(NavLink)`
   font-weight: bold;
   margin-right: 20px;
 `
-
-// Название сайта (слева, рядом с логотипом)
 export const Title = styled.h1`
   font-size: 40px;
   font-weight: bold;
 `
-
-// Контейнер для логотипа и названия
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
 `
-
+export const IconNavContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`
+export const ProfileIconContainer = styled(NavLink)`
+  display: flex;
+  flex-direction: column; /* Вертикальное выравнивание */
+  align-items: center; /* Центрируем по горизонтали */
+  text-decoration: none; /* Убираем подчеркивание */
+`
+export const ProfileText = styled.span`
+  font-size: 14px; /* Размер текста */
+  text-align: center;
+  color: white;
+`
 // Навигация (Home, Categories, Services, Login, Register)
 export const AuthNav = styled.nav`
   display: flex;
   gap: 20px;
-
   & a {
     color: white;
     font-size: 18px;
     text-decoration: none;
   }
-
   & a.active {
     text-decoration: underline;
   }
@@ -82,7 +89,6 @@ export const Footer = styled.footer`
   flex-wrap: wrap;
   //position: relative;
 `
-
 // Текст футера
 export const FooterText = styled.p`
   font-size: 18px;

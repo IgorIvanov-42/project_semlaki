@@ -1,42 +1,60 @@
+
+
 import styled from "@emotion/styled"
 export const Container = styled.div`
+flex-direction: column;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  background-image: url("/src/assets/фонРегистр.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-top: 70px;
+`
+export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: url("/src/assets/leuchtturm.jpg") no-repeat center center/cover;
-  height: 100vh; /* Высота на всю высоту окна */
-  width: 100%; /* Ширина на всю ширину окна */
-  margin: 0; /* Убираем все внешние отступы */
-  padding: 0; /* Убираем паддинг */
-  border: 0; /* Устанавливаем рамку */
-  border-radius: 8px; /* Закругление углов рамки */
-  transition: background-image 0.5s ease; /* Плавный переход при смене фона */
-  overflow: hidden; /* Убираем прокрутку для всего body */
-  background-size: cover;
-  background-position: center;
-`
-export const MyForm = styled.form`
-  background-color: rgba(190, 181, 181, 0.8); /* Полупрозрачный фон формы */
-  padding: 15px; /* Добавьте отступы для формы */
-  border-radius: 8px; /* Закругление углов */
-  transition: transform 0.1s;
-  margin: 0;
-
+  padding: 20px; 
+  border: 1px solid #ccc;
+  border-radius: 12px; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+  margin: 20px auto;
+  max-width: 400px; 
+  width: 100%;
+  transition: box-shadow 0.3s; 
   &:hover {
-    transform: translateY(-5px); /* Поднимаем карточку вверх при наведении */
-  }
-  > input {
-    margin-top: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
   }
   @media (max-width: 600px) {
-    max-width: 90%; /* Уменьшение максимальной ширины на маленьких экранах */
+    padding: 20px; 
+    max-width: 90%; 
+  }
+` // Заголовок формы
+
+export const Title = styled.h2`
+  margin:20px 0;
+  padding: 10px;
+  text-align: center;
+  color: #555;
+  font-size: 2rem; 
+  font-weight: 600; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+  @media (max-width: 600px) {
+    font-size: 1.5rem; /* Меняем размер шрифта на маленьких экранах */
+  }
+  @media (min-width: 601px) and (max-width: 900px) {
+    font-size: 1.8rem; /* Меняем размер шрифта для средних экранов */
+  }
+  @media (min-width: 901px) {
+    font-size: 2.5rem; /* Меняем размер шрифта для больших экранов */
   }
 `
-export const Title = styled.h2`
-margin: 50px;
-padding: 50px;
-  text-align: center; /* Центрируем текст */
-  /* Отступ снизу */
-  color: #333; /* Цвет заголовка */
-`;
+
