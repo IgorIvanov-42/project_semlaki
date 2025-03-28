@@ -1,4 +1,4 @@
-import { PageContainer, Paragraph, Title } from "./styles"
+import { PageContainer } from "./styles"
 
 const Home: React.FC = () => {
   return <PageContainer></PageContainer>
