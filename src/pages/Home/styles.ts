@@ -2,27 +2,45 @@ import styled from "@emotion/styled"
 
 export const PageContainer = styled.div`
   display: flex;
-  width: 50%;
-  height: 100vh;
- 
-  display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
+  flex-direction: column;
+  //height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("/src/assets/leuchtturm.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 10px;
 `
-export const Title = styled.h1`
 
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center; /* Центрирование текста */
-  margin-bottom: 16px; /* Отступ снизу */
-  color: black;
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  width: 80%;
+  max-width: 1200px;
+  padding-bottom: 20px
 `
-export const Paragraph = styled.p`
-  font-size: 18px;
-  line-height: 1.5; /* Увеличение межстрочного интервала */
-  text-align: center; /* Центрирование текста */
-  max-width: 600px; /* Максимальная ширина для удобства чтения */
+export const DescriptionText = styled.p`
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  //background: rgba(222, 216, 216, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 30px 0 20px;
+  width: 100%;
+  max-width: 1000px;
+`
+
+export const ServicesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  //margin-bottom: 40px;
 `

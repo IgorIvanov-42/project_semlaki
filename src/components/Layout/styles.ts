@@ -5,6 +5,8 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  // минимальная высота экрана
 `
 // Хедер
 export const Header = styled.header`
@@ -12,10 +14,12 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background: rgb(120, 120, 0);
+  background: rgba(120, 120, 0, 0.8);
   color: white;
   width: 100%;
 `
+
+// Логотип
 export const Logo = styled(NavLink)`
   font-size: 36px; /* размер логотип */
   color: white;
@@ -61,19 +65,53 @@ export const AuthNav = styled.nav`
     text-decoration: underline;
   }
 `
+export const ContentContainer = styled.main`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  //padding: 20px;
+  width: 100%;
+`
+
 // Футер
 export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px;
-  background: rgb(120, 120, 0);
+  padding: 10px;
+  background: rgba(120, 120, 0, 0.8);
   color: black;
   width: 100%;
   margin-top: auto;
+  flex-wrap: wrap;
+  //position: relative;
 `
 // Текст футера
 export const FooterText = styled.p`
   font-size: 18px;
   color: black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`
+// Контейнер для иконок
+export const SocialIconsContainer = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`
+
+//  иконки ФБ и Телеграм
+export const SocialIcon = styled.img`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `

@@ -4,11 +4,13 @@ import {
   Container,
   Title,
   Card,
+  InfoCard,  
+  ServiceCard,
   CardTitle,
   TextArea,
   PageBackground,
   Paragraph,
-  SmallText,
+  FlexContainer,
 } from "./ProfileUser.styles"
 import Button from "components/Button/Button"
 import CreateServiceForm from "components/CreateService/CreateServiceForm"
@@ -35,47 +37,52 @@ const ProfileUser: React.FC = () => {
     <PageBackground>
     
       <Container>
-        
+       
         <Title>User Profile</Title>
+
         <Paragraph>Welcome to your personal account!</Paragraph>
-        {/* Карточка для информации о себе */}
-        <Card>
-         
-          <CardTitle>My Information</CardTitle>
-          <label>
-            
-           <Paragraph> Upload Profile Photo:</Paragraph>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-          </label>
-          <label>
-            
-          <Paragraph>About Me:</Paragraph>  
-            <TextArea
-              placeholder="Tell us about yourself"
-              value={aboutMe}
-              onChange={handleAboutMeChange}
-            />
-          </label>
-          <Button onClick={handleSaveProfile}>Save</Button>
-        </Card>
-        {/* Карточка для создания услуги */}
-        <Card>
+      
+        <FlexContainer>
           
-          <CardTitle>Create a Service</CardTitle>
-          <Button onClick={() => setIsCreatingService(!isCreatingService)}>
+        
+          <InfoCard>
             
-            {isCreatingService ? "Cancel" : "Add Service"}
-          </Button>
-          {isCreatingService && (
-            <CreateServiceForm onSubmit={handleSubmit} />
-          )}
-        </Card>
-        <Link to="/view-services">
+            <CardTitle>My Information</CardTitle>
+            <label>
+              
+              <Paragraph> Upload Profile Photo:</Paragraph>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </label>
+            <label>
+              
+              <Paragraph>About Me:</Paragraph>
+              <TextArea
+                placeholder="Tell us about yourself"
+                value={aboutMe}
+                onChange={handleAboutMeChange}
+              />
+            </label>
+            <Button onClick={handleSaveProfile}>Save</Button>
+            </InfoCard>
+          {/* Карточка для создания услуги */}
+          <ServiceCard>
+            
+            <CardTitle>Create a Service</CardTitle>
+            <Button onClick={() => setIsCreatingService(!isCreatingService)}>
           
+              {isCreatingService ? "Cancel" : "Add Service"}
+            </Button>
+            {isCreatingService && (
+              <CreateServiceForm onSubmit={handleSubmit} />
+            )}
+          </ServiceCard>
+        </FlexContainer>
+        <Link to="/services">
+       
           <Button> View All Services</Button>
         </Link>
       </Container>

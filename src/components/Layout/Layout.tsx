@@ -8,8 +8,12 @@ import {
   AuthNav,
   FooterText,
   IconNavContainer,
+  SocialIconsContainer,
+  SocialIcon,
 } from "./styles"
 import logoImage from "../../assets/1.png"
+import facebookIcon from "../../assets/facebook94.png"
+import telegramIcon from "../../assets/telegram94.png"
 import { NavLink } from "react-router-dom"
 import { useAuth } from "../AuthProvider/AuthProvider"
 import Logout from "components/Logout/Logout"
@@ -20,11 +24,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <LayoutWrapper>
       <Header>
         <NavContainer>
-          <img
-            src={logoImage}
-            alt="MigrantsGermany Logo"
-            style={{ height: "60px" }}
-          />
+          <NavLink to="/">
+            <img
+              src={logoImage}
+              alt="MigrantsGermany Logo"
+              style={{ height: "60px", cursor: "pointer" }}
+            />
+          </NavLink>
           <Title>German Migrants</Title>
         </NavContainer>
         <IconNavContainer>
@@ -72,13 +78,39 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </Header>
       {children}
       <Footer>
-        <img
-          src={logoImage}
-          alt="MigrantsGermany Logo"
-          style={{ height: "60px" }}
-        />
+        <NavLink to="/">
+          <img
+            src={logoImage}
+            alt="MigrantsGermany Logo"
+            style={{ height: "60px", cursor: "pointer" }}
+          />
+        </NavLink>
+
         <FooterText>2025</FooterText>
-        <NavLink to="/contacts">Contacts: itmasterlina@gmail.com</NavLink>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <NavLink
+            to="/contacts"
+            style={{ whiteSpace: "nowrap", color: "black" }}
+          >
+            Contacts
+          </NavLink>
+
+          <SocialIconsContainer>
+            <a
+              href="https://www.facebook.com/share/14rHMG9y6F/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialIcon src={facebookIcon} alt="Facebook" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              {" "}
+              {/* Позже заменим ссылку для Telegram */}
+              <SocialIcon src={telegramIcon} alt="Telegram" />
+            </a>
+          </SocialIconsContainer>
+        </div>
       </Footer>
     </LayoutWrapper>
   )

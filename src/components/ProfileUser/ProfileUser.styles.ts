@@ -1,4 +1,3 @@
-// ProfileUser.styles.ts
 import styled from "@emotion/styled"
 export const PageBackground = styled.div`
   flex-direction: column;
@@ -18,15 +17,15 @@ export const Container = styled.div`
   margin-left: 0;
   width: 100%;
   padding: 30px;
-  max-width: 400px;
+  max-width: 800px;
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: absolute; 
-  left: 200px;
-  top: 100px; 
-  background-color: (255, 255, 255, 0.10); /* Полупрозрачный белый фон */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+`
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 `
 export const Title = styled.h1`
   text-align: center;
@@ -77,8 +76,24 @@ export const Card = styled.div`
   border-radius: 8px;
   padding: 15px;
   margin: 10px 0;
-  background-color: #ffffff;
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+`
+export const InfoCard = styled(Card)`
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Полупрозрачный фон для информации */
+`
+export const ServiceCard = styled(Card)`
+  background-color: rgba(
+    250,
+    250,
+    250,
+    0.7
+  ); /* Полупрозрачный фон для создания услуги */
 `
 export const CardTitle = styled.h2`
   margin-bottom: 10px;
@@ -89,14 +104,13 @@ export const CardText = styled.p`
   margin-bottom: 8px;
   font-size: 14px;
   color: #555;
-` // Добавляем стили для текста на странице
+`
 export const Paragraph = styled.p`
   font-size: 14px;
   color: #555;
-  line-height: 1.4;
-  /* Межстрочный интервал для лучшей читабельности */
+  line-height: 1.4; /* Межстрочный интервал для лучшей читабельности */
 `
 export const SmallText = styled.span`
   font-size: 12px;
-  color: #777; /* Более светлый цвет для вспомогательного текста */
+  color: #777;
 `

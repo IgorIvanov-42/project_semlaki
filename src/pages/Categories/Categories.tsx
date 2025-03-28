@@ -2,30 +2,14 @@ import { Link } from "react-router-dom"
 import { PageContainer, CategoriesGrid, CategoryCard } from "./styles"
 
 const categories = [
-  { title: "Услуги", description: "" },
-
-  { title: "Знакомства/Общение", description: "Общение и новые знакомства." },
-
-  { title: "Объявления", description: "Покупка и продажа вещей." },
-
-  {
-    title: "Образование",
-    description: " Курсы, учебные заведения вашего города",
-  },
-
-  { title: "Медицина", description: "Врачи и медицинские услуги." },
-  {
-    title: "Досуг для детей",
-    description: "Развлечения и кружки для детей.",
-  },
-  {
-    title: "IT",
-    description: " IT в Германии.",
-  },
-  {
-    title: " Родители и дети ",
-    description: " Совместное времяпровождение ",
-  },
+  { title: "Services", description: "Services and announcements.", image: "/src/assets/services.webp" },
+  { title: "Children's Leisure", description: "Entertainment and clubs for children.", image: "/src/assets/Childcare.jpg" },
+  { title: "Announcements", description: "Buy and sell items.", image: "/src/assets/Translation.jpg" },
+  { title: "Education", description: "Courses and educational institutions.", image: "/src/assets/images.jpg" },
+  { title: "Medicine", description: "Doctors and medical services.", image: "/src/assets/Med.jpg" },
+  { title: "IT in Germany", description: "IT innovations, job opportunities.", image: "/src/assets/it.jpg" },
+  { title: "Parents and Children", description: "Activities for families.", image: "/src/assets/Parents1.jpg" },
+  { title: "Dating/Communication", description: "Meet new people and make connections.", image: "/src/assets/Com.jpg" },
 ]
 
 const Categories: React.FC = () => {
@@ -36,21 +20,16 @@ const Categories: React.FC = () => {
         {categories.map((category, index) => (
           <CategoryCard key={index}>
             {index === 0 ? (
-              <Link
-                to="/services"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                {" "}
-                <h2>{category.title}</h2>{" "}
-                <img src="/src/assets/8.jpg" alt={category.title} />{" "}
-                <p>{category.description}</p>{" "}
+              <Link to="/services" style={{ textDecoration: "none", color: "inherit" }}>
+                <h2>{category.title}</h2>
+                <img src={category.image} alt={category.title} />
+                <p>{category.description}</p>
               </Link>
             ) : (
               <>
-                {" "}
-                <h2>{category.title}</h2>{" "}
-                <img src="/src/assets/8.jpg" alt={category.title} />{" "}
-                <p>{category.description}</p>{" "}
+                <h2>{category.title}</h2>
+                <img src={category.image} alt={category.title} />
+                <p>{category.description}</p>
               </>
             )}
           </CategoryCard>
@@ -59,4 +38,6 @@ const Categories: React.FC = () => {
     </PageContainer>
   )
 }
+
 export default Categories
+
