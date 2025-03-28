@@ -9,13 +9,13 @@ const categories = [
   { title: "Medicine", description: "Doctors and medical services.", image: "/src/assets/Med.jpg" },
   { title: "IT in Germany", description: "IT innovations, job opportunities.", image: "/src/assets/it.jpg" },
   { title: "Parents and Children", description: "Activities for families.", image: "/src/assets/Parents1.jpg" },
-  { title: "Dating/Communication", description: "Meet new people and make connections.", image: "/src/assets/Com.jpg" },
+  { title: "Meet & Chat", description: "Meet new people and make connections.", image: "/src/assets/Com.jpg" },
 ]
 
 const Categories: React.FC = () => {
   return (
     <PageContainer>
-      <h1>Categories</h1>
+      {/* <h1>Categories</h1> */}
       <CategoriesGrid>
         {categories.map((category, index) => (
           <CategoryCard key={index}>
