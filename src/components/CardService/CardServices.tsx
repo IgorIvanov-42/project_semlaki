@@ -7,48 +7,40 @@ import {
   MoreDetails,
   CardImage,
 } from "./CardServices.styles"
+import { useEffect, useState } from "react"
 
-const services = [
-  {
-    title: "Translation services",
-    description: "Find a translator for your documents.",
-    path: "/translation-service",
-    text: "More details",
-    image: "/src/assets/background.jpg",
-  },
-  {
-    title: "Technical services",
-    description: "Need tech support? Find a specialist for repairs and setups.",
-    path: "/technical-service",
-    text: "More details",
-    image: "/src/assets/services.webp",
-  },
-  {
-    title: "Childcare",
-    description: "Qualified professionals to take care of your children.",
-    path: "/childcare",
-    text: "More details",
-    image: "/src/assets/Children1.jpg",
-  },
-  {
-    title: "Tutoring",
-    description: "Find a tutor to help with studies and educational needs.",
-    path: "/tutoring",
-    text: "More details",
-    image: "/src/assets/images.jpg",
-  },
-]
+
+interface Service{
+  id: number;
+  title: string;
+  description: string;
+  photo: string;
+}
 
 const CardServices: React.FC = () => {
+  const [services, setServices] =useState<Service[]>([])
+  async function fetchServices(){
+    const res = await fetch("/api/services");
+    const arr =await res.json();
+    setServices(arr)
+  }
+
+  useEffect(()=>{
+    fetchServices()
+  },[])
+
+  
+
+
   return (
     <CardContainer>
       {services.slice(0, 4).map((service, index) => (
-        <Link key={index} to={service.path} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link key={service.id} to={String(service.id)} style={{ textDecoration: "none", color: "inherit" }}>
           <Card>
-            <CardImage src={service.image} alt={service.title} />
+            <CardImage src={service.photo} alt={service.title} />
             <CardTitle>{service.title}</CardTitle>
             <CardDescription>{service.description}</CardDescription>
-            <MoreDetails>{service.text}</MoreDetails>
+      {/*       <MoreDetails>{service.text}</MoreDetails> */}
           </Card>
         </Link>
       ))}

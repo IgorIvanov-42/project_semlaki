@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 export const PageContainer = styled.div`
   width: 100%;
   height: 100vh;
-  background: url("/src/assets/MG.JPG") no-repeat center center/cover;
+  background: url("/src/assets/8.jpg") no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
