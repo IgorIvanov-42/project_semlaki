@@ -17,6 +17,7 @@ import ProfileUser from "components/ProfileUser/ProfileUser"
 import { AuthProvider, useAuth } from "components/AuthProvider/AuthProvider"
 import ProtectedRoute from "components/ProtectedRoute/ProtectedRoute"
 import Login from "pages/Login/Login"
+import Contacts from "pages/Contacts/Contacts"
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="/contacts" element={<Contacts />} />
             <Route path="/category/:categoryId/services" element={<Services />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<RegistrationForm/>} />
@@ -40,7 +42,7 @@ const App = () => {
             <Route path="/tutoring" element={<TutoringService />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/profile-user"element={<ProtectedRoute element={<ProfileUser />} />
-             
+        
           
           }
             />
