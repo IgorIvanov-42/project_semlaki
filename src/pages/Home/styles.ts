@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 10px;
+  padding-top: 10px; 
 `
 
 export const ContentWrapper = styled.div`
