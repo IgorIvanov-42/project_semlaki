@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "components/AuthProvider/AuthProvider"
 import { FormWrapper } from "components/MyForm/MyForm.styles"
 import { Title } from "components/LoginForm/LoginForm.styles"
+import axios from "axios"
 
 export default function LoginForm() {
   const navigate = useNavigate()
@@ -26,6 +27,18 @@ export default function LoginForm() {
       /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*().,;:?/]).{8,}$/
     return passwordPattern.test(password)
   }
+
+
+  async function handleLogin(){
+    const res = await axios.post(
+      "/api/auth/login",
+      { email, password },
+      { headers: { "Content-Type": "application/json" } },
+    )
+    localStorage.setItem("accessToken", res.data.accessToken)
+
+    login()
+  }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     setEmailError("")
@@ -43,8 +56,7 @@ export default function LoginForm() {
       )
       return
     }
-
-    login()
+    handleLogin();
     alert("Login successful!")
     navigate("/")
   }
