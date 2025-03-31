@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import {
   CardContainer,
   Card,
@@ -19,8 +19,10 @@ interface Service{
 
 const CardServices: React.FC = () => {
   const [services, setServices] =useState<Service[]>([])
+
+  const {categoryId} = useParams()
   async function fetchServices(){
-    const res = await fetch("/api/services");
+    const res = await fetch(`/api/services/category/${categoryId}`);
     const arr =await res.json();
     setServices(arr)
   }
