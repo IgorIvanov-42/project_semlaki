@@ -17,9 +17,9 @@ import CreateServiceForm from "components/CreateService/CreateServiceForm"
 import axios from "axios"
 
 interface User {
-  email: string;
-  firstName: string;
-  lastName: string;
+  email: string
+  firstName: string
+  lastName: string
 }
 
 const ProfileUser: React.FC = () => {
@@ -29,16 +29,16 @@ const ProfileUser: React.FC = () => {
     const { data } = await axios.get("/api/auth/profile", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
     })
 
-    setUser(data);
+    setUser(data)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchUser()
-  },[])
+  }, [])
   return (
     <PageBackground>
       <Container>
@@ -53,7 +53,10 @@ const ProfileUser: React.FC = () => {
           </InfoCard>
           {/* Карточка для создания услуги */}
           <ServiceCard>
-            <CardTitle>Create a Service</CardTitle>
+            <CardTitle>
+              Create a Service
+              <CreateServiceForm />
+            </CardTitle>
           </ServiceCard>
         </FlexContainer>
         <Link to="/services">

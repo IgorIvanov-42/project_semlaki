@@ -1,38 +1,35 @@
-import type React from "react"
-
 import { useState, useEffect } from "react"
 import MyInput from "components/MyInput/MyInput"
 import Button from "components/Button/Button"
+import axios from "axios"
 
-interface CreateServiceFormProps {
-  service?: { id: number; name: string; description: string }
-  onSubmit: (service: {
-    id?: number
-    name: string
-    description: string
-    contact: string
-    image: File | null
-  }) => void
+interface Category {
+  id: number
+  description: string
+  title: string
+  photo: string
 }
-const CreateServiceForm: React.FC<CreateServiceFormProps> = ({
-  service,
-  onSubmit,
-}) => {
-  const [name, setName] = useState<string>(service ? service.name : "")
-  const [description, setDescription] = useState<string>(
-    service ? service.description : "",
-  )
+
+const CreateServiceForm: React.FC = () => {
+  const [categories, setCategories] = useState<Category[]>([])
+
+  async function fetchCategories() {
+    const { data } = await axios.get("/api/categories")
+    setCategories(data)
+  }
+
+  useEffect(() => {
+    fetchCategories()
+  }, [])
+  const [name, setName] = useState<string>("")
+  const [category, setCategory] = useState<string>("")
+  const [description, setDescription] = useState<string>("")
   const [contact, setContact] = useState<string>("")
-  const [image, setImage] = useState<File | null>(null)
+  const [image, setImage] = useState<string>("")
   const [error, setError] = useState<string>("")
   const [successMessage, setSuccessMessage] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
-  useEffect(() => {
-    if (service) {
-      setName(service.name)
-      setDescription(service.description)
-    }
-  }, [service])
+  useEffect(() => {}, [])
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     setError("")
@@ -50,20 +47,29 @@ const CreateServiceForm: React.FC<CreateServiceFormProps> = ({
       setIsSubmitting(false)
       return
     }
-    onSubmit({
-      id: service ? service.id : undefined,
-      name,
-      description,
-      contact,
-      image,
-    })
+
+    axios.post(
+      "/api/services",
+      {
+        title: name,
+        description,
+        categoryId: category,
+        photo: image,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          "Content-Type": "application/json",
+        },
+      },
+    )
     setSuccessMessage("Service successfully published!")
     setIsSubmitting(false)
     // Сброс полей формы после успешной отправки
     setName("")
     setDescription("")
     setContact("")
-    setImage(null)
+    setImage("")
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -95,18 +101,26 @@ const CreateServiceForm: React.FC<CreateServiceFormProps> = ({
         onChange={e => setContact(e.target.value)}
         required
       />
-      <label>
-        Upload Photo:
-        <input
-          type="file"
-          accept="image/*"
-          onChange={e => {
-            if (e.target.files) {
-              setImage(e.target.files[0])
-            }
-          }}
-        />
-      </label>
+      <MyInput
+        name="image"
+        label="Image"
+        type="text"
+        placeholder="Enter URL for photo"
+        value={image}
+        onChange={e => setImage(e.target.value)}
+        required
+      />
+
+      <select
+        name=""
+        id=""
+        value={category}
+        onChange={e => setCategory(e.target.value)}
+      >
+        {categories.map(c => (
+          <option value={c.id}>{c.title}</option>
+        ))}
+      </select>
       <Button text="Send" type="submit" disabled={isSubmitting} />
       {successMessage && (
         <div style={{ color: "green", marginTop: "10px" }}>
