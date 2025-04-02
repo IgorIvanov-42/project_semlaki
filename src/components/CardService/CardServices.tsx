@@ -4,10 +4,10 @@ import {
   Card,
   CardTitle,
   CardDescription,
-  MoreDetails,
   CardImage,
 } from "./CardServices.styles"
 import { useEffect, useState } from "react"
+import axios from "axios"
 
 interface Service {
   id: number
@@ -18,31 +18,33 @@ interface Service {
 
 const CardServices: React.FC = () => {
   const [services, setServices] = useState<Service[]>([])
-
-  const { categoryId } = useParams()
-  async function fetchServices() {
-    const res = await fetch(`/api/services/category/${categoryId}`)
-    const arr = await res.json()
-    setServices(arr)
-  }
+  const { categoryId } = useParams() // Получаем categoryId из URL
 
   useEffect(() => {
+    async function fetchServices() {
+      try {
+        const res = await axios.get(`/api/services/category/${categoryId}`)
+        setServices(res.data)
+      } catch (error) {
+        console.error("Error fetching services:", error)
+      }
+    }
+
     fetchServices()
-  }, [])
+  }, [categoryId]) // Перезапуск запроса при изменении categoryId
 
   return (
     <CardContainer>
-      {services.slice(0, 4).map((service, index) => (
+      {services.map((service) => (
         <Link
           key={service.id}
-          to={String(service.id)}
+          to={`/category/${categoryId}/services/${service.id}`} // путь
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <Card>
             <CardImage src={service.photo} alt={service.title} />
             <CardTitle>{service.title}</CardTitle>
             <CardDescription>{service.description}</CardDescription>
-            {/*       <MoreDetails>{service.text}</MoreDetails> */}
           </Card>
         </Link>
       ))}
@@ -51,3 +53,4 @@ const CardServices: React.FC = () => {
 }
 
 export default CardServices
+
