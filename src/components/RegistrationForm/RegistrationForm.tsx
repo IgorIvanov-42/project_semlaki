@@ -5,11 +5,16 @@ import Button from "components/Button/Button"
 import { Link, useNavigate } from "react-router-dom"
 import { Title } from "components/RegistrationForm/RegistrationForm.styles"
 import { FormWrapper } from "components/MyForm/MyForm.styles"
+import axios from "axios"
 
 export default function RegistrationForm() {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  const [firstName, setFirstName]  = useState("");
+  const [lastName, setLastName]  = useState("");
+
   const [confirmPassword, setConfirmPassword] = useState("")
   const [emailError, setEmailError] = useState("")
   const [passwordError, setPasswordError] = useState("")
@@ -55,6 +60,8 @@ export default function RegistrationForm() {
       setConfirmPasswordError("Passwords do not match.")
       return
     }
+    axios.post("/api/register", {email, password, firstName, lastName})
+
     alert("Registration successful!")
     navigate("/")
   }
@@ -69,12 +76,16 @@ export default function RegistrationForm() {
           placeholder={"e.g. First Name"}
           type={"text"}
           name={"name"}
+          value={firstName}
+          onChange={(e)=>setFirstName(e.target.value)}
         />
         <MyInput
           label={"Enter your Last Name"}
           placeholder={"e.g. Last Name"}
           type={"text"}
           name={"lastName"}
+          value={lastName}
+          onChange={(e)=>setLastName(e.target.value)}
         />
         {emailError && (
           <span style={{ color: "black", display: "block", minHeight: "20px" }}>
