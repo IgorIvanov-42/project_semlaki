@@ -21,13 +21,19 @@ export const CategoriesGrid = styled.div`
   margin: 0 auto;
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr); /* При уменьшении экрана 2 карточки в ряд */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* При уменьшении экрана 2 карточки в ряд */
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(1, 1fr); /* На маленьких экранах одна карточка в ряд */
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); 
   }
-`;
+`
 
 export const CategoryCard = styled.div`
   background: rgba(255, 255, 255, 0.8);
@@ -36,8 +42,7 @@ export const CategoryCard = styled.div`
   text-align: center;
   color: black;
   height: 350px;
-  //width: 320px;
-  width: 100%;
+  width: 320px;
   transition: transform 0.3s ease-in-out;
 
   &:hover {

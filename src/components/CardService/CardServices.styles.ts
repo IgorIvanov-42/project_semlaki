@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
 
 export const Card = styled.div`
   width: 250px;
+  height: 300px; /* Фиксированная высота карточки */
   //background: white;
   background: rgba(255, 255, 255, 0.8); /* полупрозрачный фон */
   border-radius: 10px;
