@@ -1,8 +1,6 @@
-
-
 import styled from "@emotion/styled"
 export const Container = styled.div`
-flex-direction: column;
+  flex-direction: column;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -21,32 +19,32 @@ export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; 
+  padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 12px; 
-  background-color: rgba(255, 255, 255, 0.8); 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin: 20px auto;
-  max-width: 400px; 
+  max-width: 400px;
   width: 100%;
-  transition: box-shadow 0.3s; 
+  transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   @media (max-width: 600px) {
-    padding: 20px; 
-    max-width: 90%; 
+    padding: 20px;
+    max-width: 90%;
   }
 ` // Заголовок формы
 
 export const Title = styled.h2`
-  margin:20px 0;
+  margin: 20px 0;
   padding: 10px;
   text-align: center;
   color: #555;
-  font-size: 2rem; 
-  font-weight: 600; 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   @media (max-width: 600px) {
     font-size: 1.5rem; /* Меняем размер шрифта на маленьких экранах */
   }
@@ -57,4 +55,3 @@ export const Title = styled.h2`
     font-size: 2.5rem; /* Меняем размер шрифта для больших экранов */
   }
 `
-
