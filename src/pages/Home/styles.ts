@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 10px; 
+  padding-top: 10px;
 `
 
 export const ContentWrapper = styled.div`
@@ -22,7 +22,7 @@ export const ContentWrapper = styled.div`
   flex-grow: 1;
   width: 80%;
   max-width: 1200px;
-  padding-bottom: 20px
+  padding-bottom: 20px;
 `
 export const DescriptionText = styled.p`
   text-align: center;

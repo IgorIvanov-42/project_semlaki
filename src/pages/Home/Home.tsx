@@ -6,6 +6,7 @@ import {
   ServicesContainer,
   DescriptionText,
 } from "./styles"
+import FourRandomServices from "components/FourRandomServices/FourRandomServices"
 
 const Home: React.FC = () => {
   const handleSearch = (query: string) => {
@@ -27,7 +28,8 @@ const Home: React.FC = () => {
         <SearchBar onSearch={handleSearch} />
 
         <ServicesContainer>
-          <CardServices />
+          {/* <CardServices /> */}
+          <FourRandomServices />
         </ServicesContainer>
       </ContentWrapper>
     </PageContainer>
