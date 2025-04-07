@@ -7,6 +7,7 @@ interface IMyInputProps {
   value?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   error?: string
+  required?: boolean
 }
 export default function MyInput({
   name,
@@ -16,20 +17,23 @@ export default function MyInput({
   value,
   onChange,
   error,
+  required,
 }: IMyInputProps): JSX.Element {
   return (
     <InputContainer>
-      {" "}
-      <label>{label}</label>{" "}
+      <label htmlFor={name}>{label}</label>
       <InputField
         placeholder={placeholder}
         name={name}
         type={type}
         value={value}
         onChange={onChange}
-      />{" "}
-      {error && <span style={{ color: "red" }}>{error}</span>}{" "}
-      {/* Отображение ошибки */}{" "}
+        required={required}
+        aria-invalid={!!error}
+        id={name}
+      />
+      {error && <span style={{ color: "red" }}>{error}</span>}
+      {/* Отображение ошибки */}
     </InputContainer>
   )
 }

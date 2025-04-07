@@ -11,7 +11,7 @@ export const Container = styled.div`
 `
 export const Title = styled.h2`
   margin: auto;
-  text-align: center; /* Центрируем текст */
+  text-align: center; 
   margin-bottom: 0px;
 `
 export const Message = styled.p`

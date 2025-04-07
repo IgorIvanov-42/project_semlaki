@@ -1,14 +1,20 @@
 import MyInput from "components/MyInput/MyInput"
 import { useState } from "react"
-import { Container, MyForm } from "./RegistrationForm.styles"
+import { Container } from "./RegistrationForm.styles"
 import Button from "components/Button/Button"
-import { useNavigate } from "react-router-dom"
-import { Title } from "components/Layout/styles"
+import { Link, useNavigate } from "react-router-dom"
+import { Title } from "components/RegistrationForm/RegistrationForm.styles"
+import { FormWrapper } from "components/MyForm/MyForm.styles"
+import axios from "axios"
 
 export default function RegistrationForm() {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+
   const [confirmPassword, setConfirmPassword] = useState("")
   const [emailError, setEmailError] = useState("")
   const [passwordError, setPasswordError] = useState("")
@@ -54,77 +60,95 @@ export default function RegistrationForm() {
       setConfirmPasswordError("Passwords do not match.")
       return
     }
+    axios.post("/api/register", { email, password, firstName, lastName })
+
     alert("Registration successful!")
     navigate("/")
   }
   return (
-    <Container>
-      <Title>Registration</Title>
-      <MyForm onSubmit={handleSubmit}>
-        <MyInput
-          label={"Your Name"}
-          placeholder={"Enter your name"}
-          type={"text"}
-          name={"name"}
-        />
-        <MyInput
-          label={"Your Last Name"}
-          placeholder={"Enter your last name"}
-          type={"text"}
-          name={"lastName"}
-        />
-        {emailError && (
-          <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-            {" "}
-            {emailError}{" "}
-          </span>
-        )}
-        <MyInput
-          label={"Email"}
-          placeholder={"Enter your email"}
-          type={"email"}
-          name={"email"}
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        {passwordError && (
-          <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-            {" "}
-            {passwordError}{" "}
-          </span>
-        )}
-        <MyInput
-          label={"Password"}
-          placeholder={"Enter your password"}
-          type={"password"}
-          name={"password"}
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        {confirmPasswordError && (
-          <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-            {" "}
-            {confirmPasswordError}{" "}
-          </span>
-        )}
-        <MyInput
-          label={"Confirm Password"}
-          placeholder={"Confirm your password"}
-          type={"password"}
-          name={"confirmPassword"}
-          value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
-        />
-        <label>
-          <input
-            type="checkbox"
-            checked={agreeToTerms}
-            onChange={handleTermsChange}
+    <>
+      <Container>
+        <Title>Registration</Title>
+        <FormWrapper onSubmit={handleSubmit}>
+          <MyInput
+            label={"Enter your First Name"}
+            placeholder={"e.g. First Name"}
+            type={"text"}
+            name={"name"}
+            value={firstName}
+            onChange={e => setFirstName(e.target.value)}
           />
-          I agree to the terms of service
-        </label>
-        <Button text={"Register"} type={"submit"} />
-      </MyForm>
-    </Container>
+          <MyInput
+            label={"Enter your Last Name"}
+            placeholder={"e.g. Last Name"}
+            type={"text"}
+            name={"lastName"}
+            value={lastName}
+            onChange={e => setLastName(e.target.value)}
+          />
+          {emailError && (
+            <span
+              style={{ color: "black", display: "block", minHeight: "20px" }}
+            >
+              {emailError}
+            </span>
+          )}
+          <MyInput
+            label={"Enter your Email"}
+            placeholder={"e.g. user@example.com"}
+            type={"email"}
+            name={"email"}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          {passwordError && (
+            <span
+              style={{ color: "black", display: "block", minHeight: "20px" }}
+            >
+              {passwordError}
+            </span>
+          )}
+          <MyInput
+            label={"Password"}
+            placeholder={"The password does not meet security requirements."}
+            type={"password"}
+            name={"password"}
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          {confirmPasswordError && (
+            <span style={{ color: "red", display: "block", minHeight: "20px" }}>
+              {confirmPasswordError}
+            </span>
+          )}
+          <MyInput
+            label={"Confirm Password"}
+            placeholder={"Confirm your password"}
+            type={"password"}
+            name={"confirmPassword"}
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
+          />
+          <label>
+            <input
+              type="checkbox"
+              checked={agreeToTerms}
+              onChange={handleTermsChange}
+            />
+            <Link
+              to="/terms"
+              style={{
+                marginLeft: "5px",
+                color: "black",
+                textDecoration: "underline",
+              }}
+            >
+              I agree to the terms of service
+            </Link>
+          </label>
+          <Button text={"Register"} type={"submit"} />
+        </FormWrapper>
+      </Container>
+    </>
   )
 }
