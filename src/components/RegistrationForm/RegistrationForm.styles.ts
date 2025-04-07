@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   background-color: #f0f0f0;
-  background-image: url("/src/assets/фонРегистр.png");
+  background-image: url("/src/assets/3.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;

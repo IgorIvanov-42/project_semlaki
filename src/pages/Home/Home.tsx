@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     <PageContainer>
       <ContentWrapper>
         <DescriptionText>
-          Welcome to <strong>German Migrants</strong>, a platform designed to
+          Welcome to <strong>Migrant Germany</strong>, a platform designed to
           help Russian-speaking migrants in Germany find essential services.
           Whether you need translation assistance, technical support, childcare,
           or tutoring, our community-driven service marketplace connects you

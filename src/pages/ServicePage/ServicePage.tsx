@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { PageContainer, Title, Description, Image } from "./styles"
+import { PageContainer, Title, Description, Image, Container } from "./styles"
 
 interface Service {
   id: number
@@ -36,11 +36,13 @@ const ServicePage: React.FC = () => {
   if (!service) return <p>Service not found</p>
 
   return (
+    <Container>
     <PageContainer>
       <Title>{service.title}</Title>
       <Image src={service.photo} alt={service.title} />
       <Description>{service.description}</Description>
     </PageContainer>
+    </Container>
   )
 }
 

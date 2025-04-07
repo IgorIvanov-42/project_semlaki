@@ -7,6 +7,7 @@ import {
   CardImage,
   CardTitle,
 } from "./FourRandomServices.styles"
+import { Link } from "react-router-dom"
 
 interface Service {
   id: number
@@ -33,13 +34,13 @@ export default function FourRandomServices() {
 
   return (
     <CardContainer>
-      {services.map((s) => (
-        <Card key={s.id}>
-          <CardImage src={s.photo} alt={s.title} />
-          <CardTitle>{s.title}</CardTitle>
-          <CardDescription>{s.description}</CardDescription>
-        </Card>
-      ))}
-    </CardContainer>
+    {services.map((s) => (
+      <Card key={s.id}>
+        <CardImage src={s.photo} alt={s.title} />
+        <CardTitle>{s.title}</CardTitle>
+        <CardDescription>{s.description}</CardDescription>
+      </Card>
+    ))}
+  </CardContainer>
   )
 }

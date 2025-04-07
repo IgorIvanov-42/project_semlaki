@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   max-width: 100%;
+  //background: url("/src/assets/3.png") no-repeat center center/cover;
 `
 
 export const Card = styled.div`

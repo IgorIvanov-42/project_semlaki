@@ -10,6 +10,9 @@ import {
   IconNavContainer,
   SocialIconsContainer,
   SocialIcon,
+  ProfileIconContainer,
+  ProfileIcon,
+  
 } from "./styles"
 import logoImage from "../../assets/1.png"
 import facebookIcon from "../../assets/facebook94.png"
@@ -17,7 +20,7 @@ import telegramIcon from "../../assets/telegram94.png"
 import { NavLink } from "react-router-dom"
 import { useAuth } from "../AuthProvider/AuthProvider"
 import Logout from "components/Logout/Logout"
-
+import profileIcon from "../../assets/иконка профиля.png"
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated } = useAuth()
   return (
@@ -31,7 +34,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               style={{ height: "60px", cursor: "pointer" }}
             />
           </NavLink>
-          <Title>German Migrants</Title>
+          <Title>Migrant Germany</Title>
         </NavContainer>
         <IconNavContainer>
           <AuthNav>
@@ -49,12 +52,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </NavLink>
             {isAuthenticated ? (
               <>
-                <NavLink
-                  to="/profile-user"
-                  style={{ textAlign: "center", marginRight: "0px" }}
-                >
-                  <span>Profile</span>
-                </NavLink>
+                <ProfileIconContainer to="/profile-user">
+                  <ProfileIcon src={profileIcon} alt="Profile" />
+                </ProfileIconContainer>
                 <Logout />
               </>
             ) : (
