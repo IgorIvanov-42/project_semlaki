@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 export const PageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: url("/src/assets/8.jpg") no-repeat center center/cover;
+  background: url("/src/assets/3.png") no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,10 +28,7 @@ export const CategoriesGrid = styled.div`
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(
-      1,
-      1fr
-    ); 
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 

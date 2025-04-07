@@ -1,14 +1,19 @@
 import styled from "@emotion/styled"
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: url("/src/assets/3.png") no-repeat center center/cover;
+`
+
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   padding: 50px;
-  //background: url("/src/assets/photoGreen.jpg") no-repeat center center/cover;
-  background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   max-width: 800px;
   margin: 20px auto;

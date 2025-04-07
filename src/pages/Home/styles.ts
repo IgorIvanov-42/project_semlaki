@@ -8,7 +8,7 @@ export const PageContainer = styled.div`
   //height: 100%;
   min-height: 100vh;
   width: 100vw;
-  background-image: url("/src/assets/leuchtturm.jpg");
+  background-image: url("/src/assets/3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

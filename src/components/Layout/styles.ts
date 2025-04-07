@@ -1,3 +1,4 @@
+
 import styled from "@emotion/styled"
 import { NavLink } from "react-router-dom"
 // Обёртка для всей страницы
@@ -6,16 +7,16 @@ export const LayoutWrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  // минимальная высота экрана
+  color: gray;
 `
 // Хедер
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background: rgba(120, 120, 0, 0.8);
-  color: white;
+  padding: 0px;
+  background-color: white;
+  color: gray;
   width: 100%;
 `
 
@@ -28,13 +29,29 @@ export const Logo = styled(NavLink)`
   margin-right: 20px;
 `
 export const Title = styled.h1`
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
 `
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+`
+export const ProfileIcon = styled.img`
+
+
+  width: 30px;
+  height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transition: transform 0.3s;
+  &:hover {
+    
+  transition:
+  transform 0.2s;
+    transform: scale(1.1); /* Увеличение иконки при наведении */
+
+  }
 `
 export const IconNavContainer = styled.div`
   display: flex;
@@ -43,23 +60,27 @@ export const IconNavContainer = styled.div`
 `
 export const ProfileIconContainer = styled(NavLink)`
   display: flex;
-  flex-direction: column; /* Вертикальное выравнивание */
-  align-items: center; /* Центрируем по горизонтали */
-  text-decoration: none; /* Убираем подчеркивание */
+  flex-direction: column;
+  align-items: center; 
+  text-decoration: none; 
 `
 export const ProfileText = styled.span`
   font-size: 14px; /* Размер текста */
   text-align: center;
-  color: white;
+  color: gray;
 `
 // Навигация (Home, Categories, Services, Login, Register)
 export const AuthNav = styled.nav`
+margin: 10px 0;
+padding: 5px;
   display: flex;
   gap: 20px;
   & a {
-    color: white;
-    font-size: 18px;
+
+    color: gray;
+    font-size: 16px;
     text-decoration: none;
+    padding: 0px 5px; /* Добавляем вертикальные отступы */  
   }
   & a.active {
     text-decoration: underline;
@@ -81,8 +102,8 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background: rgba(120, 120, 0, 0.8);
+  padding: 0px;
+  background: white;
   color: black;
   width: 100%;
   margin-top: auto;

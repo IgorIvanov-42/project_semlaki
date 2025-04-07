@@ -3,11 +3,9 @@ import { Link } from "react-router-dom"
 import {
   Container,
   Title,
-  Card,
   InfoCard,
   ServiceCard,
   CardTitle,
-  TextArea,
   PageBackground,
   Paragraph,
   FlexContainer,

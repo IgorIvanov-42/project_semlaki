@@ -1,4 +1,22 @@
 import styled from "@emotion/styled"
+
+export const PageBackground = styled.div`
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  background-image: url("/src/assets/3.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-top: 70px;
+`
+
 export const PageContainer = styled.div`
   padding: 20px;
   max-width: 800px;

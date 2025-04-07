@@ -1,11 +1,12 @@
 import { useState } from "react"
 import MyInput from "components/MyInput/MyInput"
 import Button from "components/Button/Button"
-import { Container } from "./LoginForm.styles"
+import { Container, PasswordResetButton } from "./LoginForm.styles"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "components/AuthProvider/AuthProvider"
-import { FormWrapper } from "components/MyForm/MyForm.styles"
+import { FormWrapper } from "components/LoginForm/LoginForm.styles"
 import { Title } from "components/LoginForm/LoginForm.styles"
+
 import axios from "axios"
 
 export default function LoginForm() {
@@ -28,8 +29,7 @@ export default function LoginForm() {
     return passwordPattern.test(password)
   }
 
-
-  async function handleLogin(){
+  async function handleLogin() {
     const res = await axios.post(
       "/api/auth/login",
       { email, password },
@@ -56,14 +56,14 @@ export default function LoginForm() {
       )
       return
     }
-    handleLogin();
+    handleLogin()
     alert("Login successful!")
     navigate("/")
   }
   return (
     <>
       <Container>
-        <Title>Login Form</Title>
+        <Title>Welcome back! Please log in to continue.</Title>
         <FormWrapper onSubmit={handleSubmit}>
           <MyInput
             label={"Enter your Email"}
@@ -82,7 +82,7 @@ export default function LoginForm() {
           <MyInput
             label={"Enter your  Password"}
             placeholder={
-              "At least 8 characters, 1 uppercase, 1 number, 1 special character"
+              "e. g. Password123.!"
             }
             type={"password"}
             name={"password"}
@@ -98,7 +98,10 @@ export default function LoginForm() {
           <Button text={"Send Form"} type={"submit"} />
         </FormWrapper>
         <Link to="/forgot-password">
-          <Button text={"Forgot your password? Reset it here."} />{" "}
+          <PasswordResetButton variant="primary" disabled={false}>
+            
+            Forgot your password? Reset it here.
+          </PasswordResetButton>
         </Link>
       </Container>
     </>

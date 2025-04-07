@@ -1,6 +1,6 @@
 import { useAuth } from "../AuthProvider/AuthProvider"
 import { LogoutButton } from "./Logout.styles"
-import logoutIcon from "../../assets/иконка выхода.png"
+import logoutIcon from "../../assets/логаут икон.png"
 const Logout: React.FC = () => {
   const { logout } = useAuth()
   const handleLogout = () => {
@@ -11,7 +11,7 @@ const Logout: React.FC = () => {
       <img
         src={logoutIcon}
         alt="Logout"
-        style={{ width: "60px", height: "60px" }}
+        style={{ width: "35px", height: "35px" }}
       />
     </LogoutButton>
   )

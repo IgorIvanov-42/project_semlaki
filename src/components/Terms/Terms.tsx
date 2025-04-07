@@ -1,9 +1,10 @@
+import { PageBackground } from "components/Terms/Terms.styles"
 import { PageContainer, StyledParagraph } from "./Terms.styles"
 import { Title } from "components/Terms/Terms.styles"
 const Terms: React.FC = () => {
   return (
     
-         
+         <PageBackground>
     <PageContainer>
       <Title>Terms of Service</Title>
       <StyledParagraph>
@@ -49,7 +50,7 @@ const Terms: React.FC = () => {
        Thank you for using our services!
        </StyledParagraph>
     </PageContainer>
-  
+    </PageBackground>
   )
 }
 export default Terms
