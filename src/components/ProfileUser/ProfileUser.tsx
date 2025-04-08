@@ -57,7 +57,7 @@ const ProfileUser: React.FC = () => {
             </CardTitle>
           </ServiceCard>
         </FlexContainer>
-        <Link to="/services">
+        <Link to="/my-services">
           <Button> View All Services</Button>
         </Link>
       </Container>

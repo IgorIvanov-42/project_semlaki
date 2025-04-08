@@ -1,52 +1,65 @@
 import styled from "@emotion/styled"
 export const PageBackground = styled.div`
+  display: flex;
   flex-direction: column;
   box-sizing: border-box;
   background-color: #f0f0f0;
   background-image: url("/src/assets/3.png");
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  padding-top: 70px;
+  padding-top: 40px;
+  overflow: hidden;
+  padding-top: 40px;
+  @media (max-width: 768px) {
+    padding-top: 20px;
+  }
 `
+
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
   margin-left: 0;
   width: 100%;
-  padding: 30px;
-  max-width: 800px;
+  padding: 100px;
+  max-width: 100%;
   margin: auto;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+  }
 `
+
 export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-`
-export const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 20px;
-  color: #333;
-`
-export const ButtonWrapper = styled.button`
-  margin: 5px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  &:hover {
-    background-color: #0056b3;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `
+export const Title = styled.h1`
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+`
+
 export const InputLabel = styled.label`
   display: block;
   margin-bottom: 10px;
@@ -55,20 +68,27 @@ export const InputLabel = styled.label`
 `
 export const Input = styled.input`
   width: 100%;
-  padding: 8px;
+  padding: 0.5rem;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 1rem;
+  @media (max-width: 768px) {
+    padding: 0.4rem;
+  }
 `
 export const TextArea = styled.textarea`
   width: 100%;
-  padding: 8px;
+  padding: 0.5rem;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 1rem;
   resize: vertical; /* Ограничение изменения размера по горизонтали */
+
+  @media (max-width: 768px) {
+    padding: 0.4rem;
+  }
 `
 export const Card = styled.div`
   text-align: center;
@@ -76,41 +96,45 @@ export const Card = styled.div`
   border-radius: 8px;
   padding: 15px;
   margin: 10px 0;
-
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `
 export const InfoCard = styled(Card)`
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Полупрозрачный фон для информации */
+  background-color: rgba(250, 250, 250, 0.7);
 `
 export const ServiceCard = styled(Card)`
-  background-color: rgba(
-    250,
-    250,
-    250,
-    0.7
-  ); /* Полупрозрачный фон для создания услуги */
+  background-color: rgba(250, 250, 250, 0.7);
 `
 export const CardTitle = styled.h2`
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 1.25rem;
   color: #333;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 export const CardText = styled.p`
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #555;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `
 export const Paragraph = styled.p`
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
-  line-height: 1.4; /* Межстрочный интервал для лучшей читабельности */
-`
-export const SmallText = styled.span`
-  font-size: 12px;
-  color: #777;
+  line-height: 1.4;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  overflow-wrap: break-word;
+  @media (max-width: 768px) {
+    font-size: 14px; 
+  }
+  @media (max-width: 480px) {
+    font-size: 12px; 
+  }
 `

@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background-color: #f0f0f0;
   background-image: url("/src/assets/3.png");
   background-size: 100% 100%;
   background-position: center;
@@ -22,11 +21,12 @@ export const FormWrapper = styled.form`
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin: 20px auto;
   max-width: 400px;
   width: 100%;
+
   transition: box-shadow 0.3s;
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);

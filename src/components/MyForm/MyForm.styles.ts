@@ -30,9 +30,8 @@ export const FormWrapper = styled.form`
   padding: 70px;
   border: 1px solid #ccc;
   border-radius: 12px;
-  background-color: (255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+ background-color: #ffffff; /* Полупрозрачный белый фон */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Более заметная тень */
-
   margin: 20px auto;
   transition: box-shadow 0.3s; /* Плавный переход для тени */
   &:hover {
