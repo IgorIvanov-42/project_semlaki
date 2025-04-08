@@ -12,7 +12,7 @@ export const CardContainer = styled.div`
 export const Card = styled.div`
   width: 250px;
   height: 300px;
-  background: rgba(255, 255, 255, 0.8); 
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -25,7 +25,7 @@ export const Card = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 150px;
+  height: 130px;
   border-radius: 10px;
   object-fit: cover;
 `
@@ -38,5 +38,9 @@ export const CardTitle = styled.h2`
 
 export const CardDescription = styled.p`
   font-size: 14px;
-  color: #666;
+  color: #667;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `

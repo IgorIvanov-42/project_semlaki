@@ -26,7 +26,7 @@ export const Card = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 150px;
+  height: 130px;
   border-radius: 10px;
 `
 
@@ -38,17 +38,9 @@ export const CardTitle = styled.h2`
 
 export const CardDescription = styled.p`
   font-size: 14px;
-  color: #666;
-`
-
-export const MoreDetails = styled.button`
-  background-color: rgb(120, 120, 0);
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: rgb(100, 100, 0);
-  }
+  color: #667;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `
