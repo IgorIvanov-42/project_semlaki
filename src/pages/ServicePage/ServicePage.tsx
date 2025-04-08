@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { PageContainer, Title, Description, Image, Container } from "./styles"
+import Button from "components/Button/Button"
 
 interface Service {
   id: number
@@ -41,6 +42,7 @@ const ServicePage: React.FC = () => {
       <Title>{service.title}</Title>
       <Image src={service.photo} alt={service.title} />
       <Description>{service.description}</Description>
+      <Button text="Back" onClick={() => window.history.back()} />
     </PageContainer>
     </Container>
   )

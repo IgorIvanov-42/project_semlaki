@@ -17,6 +17,8 @@ export const PageContainer = styled.div`
   border-radius: 10px;
   max-width: 800px;
   margin: 20px auto;
+  overflow: hidden;
+  box-sizing: border-box;
 `
 
 export const Title = styled.h1`

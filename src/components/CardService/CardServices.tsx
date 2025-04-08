@@ -8,6 +8,7 @@ import {
 } from "./CardServices.styles"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import Button from "components/Button/Button"
 
 interface Service {
   id: number
@@ -35,16 +36,22 @@ const CardServices: React.FC = () => {
 
   return (
     <CardContainer>
-      {services.map((service) => (
+      {services.map(service => (
         <Link
           key={service.id}
           to={`/category/${categoryId}/services/${service.id}`} // путь
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <Card>
-            <CardImage src={service.photo} alt={service.title} />
             <CardTitle>{service.title}</CardTitle>
-            <CardDescription>{service.description}</CardDescription>
+            <CardImage src={service.photo} alt={service.title} />
+
+            <CardDescription>
+              {service.description.length > 120
+                ? `${service.description.slice(0, 120)}...`
+                : service.description}
+            </CardDescription>
+            <Button text="More Details" />
           </Card>
         </Link>
       ))}
@@ -53,4 +60,3 @@ const CardServices: React.FC = () => {
 }
 
 export default CardServices
-

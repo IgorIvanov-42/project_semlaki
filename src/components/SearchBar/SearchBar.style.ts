@@ -22,13 +22,21 @@ export const SearchButton = styled.button`
   font-size: 18px;
   margin-left: 10px;
   border: none;
-  background-color: rgb(120, 120, 0);
-  color: white;
+  background: linear-gradient(135deg, #f9efef 0%, #e1b0b0 100%);
+  color: black;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
 
+
   &:hover {
-    background-color: rgb(90, 90, 0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #a9a9a9 0%, #f9efef 100%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 `

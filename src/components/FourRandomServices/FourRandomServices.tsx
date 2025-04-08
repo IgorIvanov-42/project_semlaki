@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "./FourRandomServices.styles"
 import { Link } from "react-router-dom"
+import Button from "components/Button/Button"
 
 interface Service {
   id: number
@@ -34,13 +35,25 @@ export default function FourRandomServices() {
 
   return (
     <CardContainer>
-    {services.map((s) => (
-      <Card key={s.id}>
-        <CardImage src={s.photo} alt={s.title} />
-        <CardTitle>{s.title}</CardTitle>
-        <CardDescription>{s.description}</CardDescription>
-      </Card>
-    ))}
-  </CardContainer>
+      {services.map(s => (
+        <Link
+          key={s.id}
+          to={`/category/0/services/${s.id}`} // Временно ставим categoryId = 0 (если точно неизвестен)
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Card>
+          <CardTitle>{s.title}</CardTitle>
+            <CardImage src={s.photo} alt={s.title} />
+            
+            <CardDescription>
+              {s.description.length > 120
+                ? `${s.description.slice(0, 120)}...`
+                : s.description}
+            </CardDescription>
+            <Button text="More Details" />
+          </Card>
+        </Link>
+      ))}
+    </CardContainer>
   )
 }
