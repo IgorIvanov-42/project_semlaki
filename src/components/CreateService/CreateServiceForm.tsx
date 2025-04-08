@@ -3,6 +3,8 @@ import MyInput from "components/MyInput/MyInput"
 import Button from "components/Button/Button"
 import axios from "axios"
 
+
+
 interface Category {
   id: number
   description: string
@@ -12,12 +14,10 @@ interface Category {
 
 const CreateServiceForm: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([])
-
   async function fetchCategories() {
     const { data } = await axios.get("/api/categories")
     setCategories(data)
   }
-
   useEffect(() => {
     fetchCategories()
   }, [])
@@ -29,8 +29,7 @@ const CreateServiceForm: React.FC = () => {
   const [error, setError] = useState<string>("")
   const [successMessage, setSuccessMessage] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
-  useEffect(() => {}, [])
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setError("")
     setSuccessMessage("")
@@ -40,38 +39,37 @@ const CreateServiceForm: React.FC = () => {
       setError("Description must be at least 50 characters long")
       setIsSubmitting(false)
       return
-    }
-    // Валидация контактной информации
+    } // Валидация контактной информации
     if (contact.trim() === "") {
       setError("Contact information is required")
       setIsSubmitting(false)
       return
     }
-
-    axios.post(
-      "/api/services",
-      {
-        title: name,
-        description,
-        categoryId: category,
-        photo: image,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          "Content-Type": "application/json",
+    try {
+      await axios.post(
+        "/api/services",
+        { title: name, description, categoryId: category, photo: image },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json",
+          },
         },
-      },
-    )
-    setSuccessMessage("Service successfully published!")
-    setIsSubmitting(false)
-    // Сброс полей формы после успешной отправки
-    setName("")
-    setDescription("")
-    setContact("")
-    setImage("")
+      )
+      setSuccessMessage("Service successfully published!")
+    } catch (err) {
+      setError("Failed to publish the service. Please try again.")
+      console.error(err)
+    } finally {
+      setIsSubmitting(false) // Сброс полей формы после успешной отправки
+      setName("")
+      setDescription("")
+      setContact("")
+      setImage("")
+    }
   }
   return (
+   
     <form onSubmit={handleSubmit}>
       <MyInput
         name="serviceName"
@@ -85,22 +83,14 @@ const CreateServiceForm: React.FC = () => {
       <MyInput
         name="serviceDescription"
         label="Service Description"
-        type="text"
+        type="textarea"
         placeholder="Enter service description"
         value={description}
         onChange={e => setDescription(e.target.value)}
         required
       />
       {error && <span style={{ color: "red" }}>{error}</span>}
-      <MyInput
-        name="contactInfo"
-        label="Contact Information"
-        type="text"
-        placeholder="Enter contact information"
-        value={contact}
-        onChange={e => setContact(e.target.value)}
-        required
-      />
+    
       <MyInput
         name="image"
         label="Image"
@@ -110,7 +100,6 @@ const CreateServiceForm: React.FC = () => {
         onChange={e => setImage(e.target.value)}
         required
       />
-
       <select
         name=""
         id=""
@@ -118,17 +107,19 @@ const CreateServiceForm: React.FC = () => {
         onChange={e => setCategory(e.target.value)}
       >
         {categories.map(c => (
-          <option value={c.id}>{c.title}</option>
+          <option key={c.id} value={c.id}>
+            {c.title}
+          </option> // Добавлен ключ
         ))}
       </select>
       <Button text="Send" type="submit" disabled={isSubmitting} />
       {successMessage && (
         <div style={{ color: "green", marginTop: "10px" }}>
-          {" "}
-          {successMessage}{" "}
+          {successMessage}
         </div>
       )}
     </form>
+    
   )
 }
 export default CreateServiceForm

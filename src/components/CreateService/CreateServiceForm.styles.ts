@@ -1,7 +1,9 @@
 import styled from "@emotion/styled"
+
+
 export const Card = styled.div`
   width: 100%;
-
+  
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 8px;

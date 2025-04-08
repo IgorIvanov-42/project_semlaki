@@ -13,6 +13,8 @@ import { AuthProvider } from "components/AuthProvider/AuthProvider"
 import ProtectedRoute from "components/ProtectedRoute/ProtectedRoute"
 import Contacts from "pages/Contacts/Contacts"
 import ServicePage from "pages/ServicePage/ServicePage"
+import MyServices from "components/MyServices/MyServices"
+
 
 const App = () => {
   return (
@@ -40,6 +42,7 @@ const App = () => {
               path="/profile-user"
               element={<ProtectedRoute element={<ProfileUser />} />}
             />
+            <Route path="/my-services" element={<MyServices />} />
           </Routes>
         </Layout>
       </BrowserRouter>

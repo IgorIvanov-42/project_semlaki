@@ -4,7 +4,7 @@ import Button from "components/Button/Button"
 import { Container, PasswordResetButton } from "./LoginForm.styles"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "components/AuthProvider/AuthProvider"
-import { FormWrapper } from "components/LoginForm/LoginForm.styles"
+import { FormWrapper } from "components/MyForm/MyForm.styles"
 import { Title } from "components/LoginForm/LoginForm.styles"
 
 import axios from "axios"
@@ -46,13 +46,13 @@ export default function LoginForm() {
 
     if (!validateEmail(email)) {
       setEmailError(
-        "Email must contain '@' and at least one letter, and be at least 8 characters long.",
+        "Incorrect Email.",
       )
       return
     }
     if (!validatePassword(password)) {
       setPasswordError(
-        "Password must be at least 8 characters long, contain at least one uppercase letter, one number, and one special character.",
+        "Incorrect password.",
       )
       return
     }
@@ -74,7 +74,7 @@ export default function LoginForm() {
             onChange={e => setEmail(e.target.value)}
           />
           {emailError && (
-            <span style={{ color: "red", display: "block", minHeight: "20px" }}>
+            <span style={{ color: "black", display: "block", minHeight: "20px" }}>
               {" "}
               {emailError}{" "}
             </span>
@@ -90,7 +90,7 @@ export default function LoginForm() {
             onChange={e => setPassword(e.target.value)}
           />
           {passwordError && (
-            <span style={{ color: "red", display: "block", minHeight: "20px" }}>
+            <span style={{ color: "black", display: "block", minHeight: "20px" }}>
               {" "}
               {passwordError}{" "}
             </span>
