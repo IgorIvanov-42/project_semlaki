@@ -3,6 +3,8 @@ import styled from "@emotion/styled"
 export const PageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
+  padding-top: 100px; /* отступ от фиксированного хедера */
+  padding-bottom: 80px; /* отступ от футера */
   background: url("/src/assets/3.png") no-repeat center center/cover;
   display: flex;
   flex-direction: column;

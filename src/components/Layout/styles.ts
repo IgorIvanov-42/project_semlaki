@@ -7,6 +7,7 @@ export const LayoutWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   color: black;
+  padding-top: 80px; /* отступ равный высоте хедера */
 `
 // Хедер
 export const Header = styled.header`
@@ -17,6 +18,12 @@ export const Header = styled.header`
   background-color: white;
   color: black;
   width: 100%;
+  position: fixed; /* фиксируем */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 80px; /* добавим фиксированную высоту */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* тень для видимости */
 `
 
 // Логотип
