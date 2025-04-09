@@ -11,14 +11,16 @@ export default function RegistrationForm() {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
-
   const [confirmPassword, setConfirmPassword] = useState("")
   const [emailError, setEmailError] = useState("")
   const [passwordError, setPasswordError] = useState("")
   const [confirmPasswordError, setConfirmPasswordError] = useState("")
+  const [firstNameError, setFirstNameError] = useState<string>("")
+  const [lastNameError, setLastNameError] = useState<string>("")
+  const [alreadyRegisteredError, setAlreadyRegisteredError] =
+    useState<string>("")
   const navigate = useNavigate()
 
   const handleTermsChange = () => {
@@ -34,15 +36,27 @@ export default function RegistrationForm() {
     console.log(`Validating password: ${password}`)
     return passwordPattern.test(password)
   }
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setEmailError("")
     setPasswordError("")
     setConfirmPasswordError("")
+    setFirstNameError("")
+    setLastNameError("")
+    setAlreadyRegisteredError("")
     if (!agreeToTerms) {
       alert("Please accept the terms of service.")
       return
     }
+    if (!firstName) {
+      setFirstNameError("First Name is required.")
+      return
+    }
+    if (!lastName) {
+      setLastNameError("Last Name is required.")
+      return
+    }
+
     if (!validateEmail(email)) {
       setEmailError(
         "Email must contain '@', at least one letter, and be at least 8 characters long.",
@@ -60,11 +74,30 @@ export default function RegistrationForm() {
       setConfirmPasswordError("Passwords do not match.")
       return
     }
-    axios.post("/api/register", { email, password, firstName, lastName })
 
-    alert("Registration successful!")
-    navigate("/")
+    try {
+      await axios.post("/api/register", {
+        email,
+        password,
+        firstName,
+        lastName,
+      })
+      alert("Registration successful!")
+      navigate("/")
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        if (error.response.status === 409) {
+          setAlreadyRegisteredError("This email is already registered.")
+        } else {
+          alert("Registration failed. Please try again.")
+        }
+      } else {
+        console.error("Registration error:", error)
+        alert("An unexpected error occurred. Please try again.")
+      }
+    }
   }
+
   return (
     <>
       <Container>
@@ -78,6 +111,14 @@ export default function RegistrationForm() {
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
           />
+          {firstNameError && (
+            <span
+              style={{ color: "black", display: "block", minHeight: "20px" }}
+            >
+              {" "}
+              {firstNameError}{" "}
+            </span>
+          )}
           <MyInput
             label={"Enter your Last Name"}
             placeholder={"e.g. Last Name"}
@@ -86,13 +127,23 @@ export default function RegistrationForm() {
             value={lastName}
             onChange={e => setLastName(e.target.value)}
           />
-          {emailError && (
+          {lastNameError && (
             <span
               style={{ color: "black", display: "block", minHeight: "20px" }}
             >
-              {emailError}
+              {" "}
+              {lastNameError}{" "}
             </span>
           )}
+          {alreadyRegisteredError && (
+            <span
+              style={{ color: "black", display: "block", minHeight: "20px" }}
+            >
+              {" "}
+              {alreadyRegisteredError}{" "}
+            </span>
+          )}
+
           <MyInput
             label={"Enter your Email"}
             placeholder={"e.g. user@example.com"}
@@ -140,7 +191,7 @@ export default function RegistrationForm() {
               style={{
                 marginLeft: "5px",
                 color: "black",
-                textDecoration: "underline",
+                textDecoration: "none",
               }}
             >
               I agree to the terms of service

@@ -30,35 +30,43 @@ export default function LoginForm() {
   }
 
   async function handleLogin() {
-    const res = await axios.post(
-      "/api/auth/login",
-      { email, password },
-      { headers: { "Content-Type": "application/json" } },
-    )
-    localStorage.setItem("accessToken", res.data.accessToken)
+    try {
+      const res = await axios.post(
+        "/api/auth/login",
+        { email, password },
+        { headers: { "Content-Type": "application/json" } },
+      )
+      localStorage.setItem("accessToken", res.data.accessToken)
 
-    login()
+      login()
+      navigate("/profile-user")
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        if (error.response.status === 401 || error.response.status === 404) {
+          setEmailError("User not registered or invalid credentials.")
+        } else {
+          setEmailError("An error occurred. Please try again.")
+        }
+      } else {
+        setEmailError("An unexpected error occurred.")
+      }
+    }
   }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     setEmailError("")
     setPasswordError("")
 
     if (!validateEmail(email)) {
-      setEmailError(
-        "Incorrect Email.",
-      )
+      setEmailError("Incorrect Email.")
       return
     }
     if (!validatePassword(password)) {
-      setPasswordError(
-        "Incorrect password.",
-      )
+      setPasswordError("Incorrect password.")
       return
     }
     handleLogin()
-    alert("Login successful!")
-    navigate("/")
   }
   return (
     <>
@@ -74,23 +82,25 @@ export default function LoginForm() {
             onChange={e => setEmail(e.target.value)}
           />
           {emailError && (
-            <span style={{ color: "black", display: "block", minHeight: "20px" }}>
+            <span
+              style={{ color: "black", display: "block", minHeight: "20px" }}
+            >
               {" "}
               {emailError}{" "}
             </span>
           )}
           <MyInput
             label={"Enter your  Password"}
-            placeholder={
-              "e. g. Password123.!"
-            }
+            placeholder={"e. g. Password123.!"}
             type={"password"}
             name={"password"}
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
           {passwordError && (
-            <span style={{ color: "black", display: "block", minHeight: "20px" }}>
+            <span
+              style={{ color: "black", display: "block", minHeight: "20px" }}
+            >
               {" "}
               {passwordError}{" "}
             </span>
@@ -99,7 +109,6 @@ export default function LoginForm() {
         </FormWrapper>
         <Link to="/forgot-password">
           <PasswordResetButton variant="primary" disabled={false}>
-            
             Forgot your password? Reset it here.
           </PasswordResetButton>
         </Link>

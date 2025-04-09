@@ -49,12 +49,14 @@ export const FlexContainer = styled.div`
   }
 `
 export const Title = styled.h1`
-  margin: 0px;
-  padding: 0px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  color: #555;
+  font-size: 2rem;
+  font-weight: 400;
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-  color: #333;
+  margin: 20px 0 10px 0px;
+
   @media (max-width: 768px) {
     font-size: 1.25rem;
   }
@@ -108,7 +110,7 @@ export const ServiceCard = styled(Card)`
   background-color: rgba(250, 250, 250, 0.7);
 `
 export const CardTitle = styled.h2`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 1.25rem;
   color: #333;
   @media (max-width: 768px) {
