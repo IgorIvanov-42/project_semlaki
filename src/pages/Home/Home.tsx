@@ -1,5 +1,5 @@
 import SearchBar from "components/SearchBar/SearchBar"
-import CardServices from "components/CardService/CardServices"
+import { SearchResultsContainer } from "./styles"
 import {
   PageContainer,
   ContentWrapper,
@@ -18,6 +18,7 @@ import {
   CardTitle,
 } from "components/CardService/CardServices.styles"
 import Button from "components/Button/Button"
+import { SectionTitle } from "./styles"
 
 const Home: React.FC = () => {
   const handleSearch = (query: string) => {
@@ -54,26 +55,27 @@ const Home: React.FC = () => {
 
         <SearchBar onSearch={handleSearch} query={query} setQuery={setQuery} />
 
-        {services.map(s => (
-          <Link
-            key={s.id}
-            to={`/category/0/services/${s.id}`} // Временно ставим categoryId = 0 (если точно неизвестен)
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <Card>
-              <CardTitle>{s.title}</CardTitle>
-              <CardImage src={s.photo} alt={s.title} />
-
-              <CardDescription>
-                {s.description.length > 120
-                  ? `${s.description.slice(0, 120)}...`
-                  : s.description}
-              </CardDescription>
-              <Button text="More Details" />
-            </Card>
-          </Link>
-        ))}
-
+        <SearchResultsContainer>
+  {services.map(s => (
+    <Link
+      key={s.id}
+      to={`/category/0/services/${s.id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <Card>
+        <CardTitle>{s.title}</CardTitle>
+        <CardImage src={s.photo} alt={s.title} />
+        <CardDescription>
+          {s.description.length > 120
+            ? `${s.description.slice(0, 120)}...`
+            : s.description}
+        </CardDescription>
+        <Button text="More Details" />
+      </Card>
+    </Link>
+  ))}
+</SearchResultsContainer>
+<SectionTitle>Random selection of services</SectionTitle>
         <ServicesContainer>
           {/* <CardServices /> */}
           <FourRandomServices />

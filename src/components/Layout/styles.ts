@@ -6,7 +6,7 @@ export const LayoutWrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  color: gray;
+  color: black;
 `
 // Хедер
 export const Header = styled.header`
@@ -15,7 +15,7 @@ export const Header = styled.header`
   align-items: center;
   padding: 0px;
   background-color: white;
-  color: gray;
+  color: black;
   width: 100%;
 `
 
@@ -28,7 +28,7 @@ export const Logo = styled(NavLink)`
   margin-right: 20px;
 `
 export const Title = styled.h1`
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
 `
 export const NavContainer = styled.div`
@@ -63,15 +63,15 @@ export const ProfileText = styled.span`
   text-align: center;
   color: gray;
 `
-// Навигация (Home, Categories, Services, Login, Register)
+// Навигация (Home, Categories, Login, Register)
 export const AuthNav = styled.nav`
   margin: 10px 0;
   padding: 5px;
   display: flex;
   gap: 20px;
   & a {
-    color: gray;
-    font-size: 16px;
+    color: black;
+    font-size: 20px;
     text-decoration: none;
     padding: 0px 5px; /* Добавляем вертикальные отступы */
   }
