@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, query, setQuery }) => {
         type="text"
         value={query}
         onChange={e => setQuery(e.target.value)}
-        placeholder="Enter service name"
+        placeholder="Enter a search term"
       /> 
       <SearchButton variant="primary" onClick={handleSearch}>Search</SearchButton>
     </SearchContainer>

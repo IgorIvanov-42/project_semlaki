@@ -44,3 +44,17 @@ export const ServicesContainer = styled.div`
   max-width: 100%;
   //margin-bottom: 40px;
 `
+export const SearchResultsContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  max-width: 100%;
+`
+export const SectionTitle = styled.h3`
+  font-size: 22px;
+  color: black;
+  text-align: center;
+  margin-top: 40px;
+`
