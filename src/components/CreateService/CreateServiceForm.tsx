@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import MyInput from "components/MyInput/MyInput"
 import Button from "components/Button/Button"
 import axios from "axios"
+import { Card, CardTitle } from "./CreateServiceForm.styles"
 
 
 
@@ -24,7 +25,6 @@ const CreateServiceForm: React.FC = () => {
   const [name, setName] = useState<string>("")
   const [category, setCategory] = useState<string>("")
   const [description, setDescription] = useState<string>("")
-  const [contact, setContact] = useState<string>("")
   const [image, setImage] = useState<string>("")
   const [error, setError] = useState<string>("")
   const [successMessage, setSuccessMessage] = useState<string>("")
@@ -39,12 +39,14 @@ const CreateServiceForm: React.FC = () => {
       setError("Description must be at least 50 characters long")
       setIsSubmitting(false)
       return
-    } // Валидация контактной информации
-    if (contact.trim() === "") {
-      setError("Contact information is required")
+    }
+    // Валидацию для максимальной длины
+    if (description.length > 210) {
+      setError("Description must not exceed 210 characters")
       setIsSubmitting(false)
       return
     }
+
     try {
       await axios.post(
         "/api/services",
@@ -57,19 +59,23 @@ const CreateServiceForm: React.FC = () => {
         },
       )
       setSuccessMessage("Service successfully published!")
-    } catch (err) {
-      setError("Failed to publish the service. Please try again.")
-      console.error(err)
-    } finally {
-      setIsSubmitting(false) // Сброс полей формы после успешной отправки
       setName("")
       setDescription("")
-      setContact("")
+
       setImage("")
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
+        setError(`Failed to publish the service: ${err.response.data.message}`)
+      } else {
+        setError("Failed to publish the service. Please try again.")
+      }
+      console.error(err)
+    } finally {
+      setIsSubmitting(false)
     }
   }
   return (
-   
+    <Card>  
     <form onSubmit={handleSubmit}>
       <MyInput
         name="serviceName"
@@ -90,7 +96,7 @@ const CreateServiceForm: React.FC = () => {
         required
       />
       {error && <span style={{ color: "red" }}>{error}</span>}
-    
+
       <MyInput
         name="image"
         label="Image"
@@ -119,7 +125,7 @@ const CreateServiceForm: React.FC = () => {
         </div>
       )}
     </form>
-    
+    </Card>
   )
 }
 export default CreateServiceForm

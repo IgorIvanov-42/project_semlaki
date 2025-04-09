@@ -14,7 +14,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
     props.disabled
       ? "#ccc" /* Серый фон для отключенной кнопки */
       : props.variant === "primary"
-      ? "linear-gradient(135deg, #f9efef 0%, #e1b0b0 100%)" /* Градиент для основной кнопки */
+        ? "linear-gradient(135deg, #f9efef 0%, #e1b0b0 100%)" /* Градиент для основной кнопки */
         : "linear-gradient(135deg, #dbd9d8 0%, #b0a8a8 100%)"}; /* Градиент для кнопки "danger" */
 
   /* Цвет текста в зависимости от состояния кнопки */

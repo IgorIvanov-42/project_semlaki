@@ -14,7 +14,7 @@ export const Container = styled.div`
   margin: 0;
   padding: 50px 0px 100px 550px;
   overflow: hidden;
-  background-color: #f0e68c; 
+  
 
   @media (max-width: 900px) {
     padding: 50px 20px 100px;
@@ -47,7 +47,6 @@ export const FormWrapper = styled.form`
   }
   @media (max-width: 900px) {
     width: 70%;
-  
   }
   @media (max-width: 600px) {
     padding: 20px;
@@ -121,6 +120,6 @@ export const PasswordResetButton = styled.button<PasswordResetButtonProps>`
   }
   @media (max-width: 600px) {
     padding: 10px 20px;
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 `

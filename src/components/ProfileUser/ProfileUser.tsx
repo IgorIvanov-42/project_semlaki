@@ -40,7 +40,7 @@ const ProfileUser: React.FC = () => {
   return (
     <PageBackground>
       <Container>
-        <Title>User Profile</Title>
+        <Title>Profile</Title>
         <Paragraph>Welcome to your personal account!</Paragraph>
         <FlexContainer>
           <InfoCard>
@@ -48,18 +48,19 @@ const ProfileUser: React.FC = () => {
             <p>{user?.email}</p>
             <p>{user?.firstName}</p>
             <p>{user?.lastName}</p>
+            <Link to="/my-services">
+          <Button> View My Services</Button>
+        </Link>
           </InfoCard>
           {/* Карточка для создания услуги */}
           <ServiceCard>
             <CardTitle>
-              Create a Service
+              Create Service
               <CreateServiceForm />
             </CardTitle>
           </ServiceCard>
         </FlexContainer>
-        <Link to="/my-services">
-          <Button> View All Services</Button>
-        </Link>
+       
       </Container>
     </PageBackground>
   )

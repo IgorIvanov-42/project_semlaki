@@ -1,16 +1,14 @@
 import styled from "@emotion/styled"
 
-
 export const Card = styled.div`
   width: 100%;
-  
   text-align: center;
-  border: 1px solid #ccc;
+
   border-radius: 8px;
   padding: 30px;
-  margin: 30px auto;
+  margin: 10px auto;
   background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ 
 `
 export const CardTitle = styled.h2`
   margin-bottom: 15px;
@@ -19,6 +17,15 @@ export const CardTitle = styled.h2`
 `
 export const CardText = styled.p`
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  //margin-bottom: 10px;
+  //font-size: 16px;
+  //color: #555;
 `

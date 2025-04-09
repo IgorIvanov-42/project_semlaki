@@ -38,13 +38,14 @@ export const FormWrapper = styled.form`
 ` // Заголовок формы
 
 export const Title = styled.h2`
-  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   padding: 10px;
-  text-align: center;
   color: #555;
   font-size: 2rem;
-  font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+  text-align: center;
+  margin: 20px 0 10px 0px;
+
   @media (max-width: 600px) {
     font-size: 1.5rem; /* Меняем размер шрифта на маленьких экранах */
   }
