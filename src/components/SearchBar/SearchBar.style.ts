@@ -1,5 +1,10 @@
 import styled from "@emotion/styled"
 
+interface ButtonProps {  variant?: "primary" | "danger"; 
+  
+   disabled?: boolean  ; 
+  }
+
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -17,16 +22,22 @@ export const SearchInput = styled.input`
   background: rgba(255, 255, 255, 0.6); 
 `;
 
-export const SearchButton = styled.button`
+export const SearchButton = styled.button<ButtonProps>`
   padding: 12px;
   font-size: 18px;
   margin-left: 10px;
   border: none;
-  background: linear-gradient(135deg, #f9efef 0%, #e1b0b0 100%);
+ // background: linear-gradient(135deg, #f9efef 0%, #e1b0b0 100%);
   color: black;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+
+  background-color: ${props => 
+     props.disabled   
+        ? "#ccc" /* Серый фон для отключенной кнопки */  
+      : props.variant === "primary"      ? "linear-gradient(135deg, #f9efef 0%, #e1b0b0 100%)" /* Градиент для основной кнопки */      : "linear-gradient(135deg, #dbd9d8 0%, #b0a8a8 100%)"}; /* Градиент для кнопки "danger" */  /* Цвет текста в зависимости от состояния кнопки */  color: ${props =>    props.disabled      ? "rgb(215, 203, 203)"      : "black"};
+
 
 
   &:hover {

@@ -2,10 +2,12 @@
 import { useState } from "react"
 import { SearchContainer, SearchInput, SearchButton } from "./SearchBar.style"
 interface SearchBarProps {
-  onSearch: (query: string) => void
+  onSearch: (query: string) => void,
+  query: string,
+  setQuery:React.Dispatch<React.SetStateAction<string>>
 }
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [query, setQuery] = useState("")
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, query, setQuery }) => {
+  
 
   const handleSearch = () => {
     onSearch(query)
@@ -19,8 +21,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         value={query}
         onChange={e => setQuery(e.target.value)}
         placeholder="Enter service name"
-      />
-      <SearchButton onClick={handleSearch}>Search</SearchButton>
+      /> 
+      <SearchButton variant="primary" onClick={handleSearch}>Search</SearchButton>
     </SearchContainer>
   )
 }
