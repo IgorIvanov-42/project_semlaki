@@ -7,7 +7,7 @@ export const ContactsPage = styled.div`
   align-items: center;
   min-height: 100vh;
   width: 100vw;
-  background: url("/src/assets/leuchtturm.jpg") no-repeat center center/cover;
+  background: url("/src/assets/3.png") no-repeat center center/cover;
   padding-top: 50px;
 `
 
