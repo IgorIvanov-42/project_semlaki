@@ -14,7 +14,6 @@ export const Container = styled.div`
   margin: 0;
   padding: 50px 0px 100px 550px;
   overflow: hidden;
-  
 
   @media (max-width: 900px) {
     padding: 50px 20px 100px;
@@ -121,5 +120,20 @@ export const PasswordResetButton = styled.button<PasswordResetButtonProps>`
   @media (max-width: 600px) {
     padding: 10px 20px;
     margin: 10px 0;
+  }
+`
+export const PasswordToggleButton = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  &:hover {
+    color: gray;
+  }
+  &:focus {
+    outline: none;
   }
 `

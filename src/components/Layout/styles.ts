@@ -44,8 +44,11 @@ export const NavContainer = styled.div`
   gap: 20px;
 `
 export const ProfileIcon = styled.img`
-  width: 30px;
-  height: 30px;
+
+  width: 35px;
+  height: 35px;
+
+ 
   cursor: pointer;
   transition: transform 0.3s;
   transition: transform 0.3s;

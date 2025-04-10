@@ -8,7 +8,7 @@ import {
   PageBackground,
   CardContainer,
   ButtonContainer,
-  BackButton
+  BackButton,
 } from "./MyServices.styles"
 import { useEffect, useState } from "react"
 import Button from "components/Button/Button"
@@ -66,7 +66,6 @@ const MyServices: React.FC = () => {
   return (
     <PageBackground>
       <Container>
-     
         <Title>My Services</Title>
         <CardContainer>
           {services.length === 0 ? (
@@ -83,20 +82,19 @@ const MyServices: React.FC = () => {
                   <CardText>{service.description}</CardText>
                 </Link>
                 <ButtonContainer>
-                <Button onClick={() => deleteService(service.id)}>
-                  Delete
-                </Button>
-                <Link to={`/category/${categoryId}/services/${service.id}`}>
-                 
-                  <Button text="More Details" />
-                </Link>
+                  <Button onClick={() => deleteService(service.id)}>
+                    Delete
+                  </Button>
+                  <Link to={`/category/${categoryId}/services/${service.id}`}>
+                    <Button text="More Details" />
+                  </Link>
                 </ButtonContainer>
               </ServiceCard>
             ))
           )}
         </CardContainer>
         <BackButton onClick={() => navigate(-1)}>Back</BackButton>
-        </Container>
+      </Container>
     </PageBackground>
   )
 }

@@ -6,9 +6,9 @@ export const CardContainer = styled.div`
   justify-content: center;
   gap: 20px;
   margin: 0 auto;
-  overflow: hidden;
+
   max-width: 1100px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     flex-direction: row;
   }
   @media (max-width: 900px) {
@@ -29,11 +29,7 @@ export const PageBackground = styled.div`
   background-repeat: no-repeat;
   overflow: hidden;
 `
-export const Container = styled.div`
-margin:5px 0px 30px 3px;
-
-
-`
+export const Container = styled.div``
 export const Title = styled.h1`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   padding: 10px;
@@ -63,6 +59,10 @@ export const ServiceCard = styled.div`
     height: auto;
     border-radius: 4px;
   }
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
   @media (max-width: 900px) {
     flex: 1 1 calc(50% - 20px);
     max-width: calc(50% - 20px);
@@ -88,17 +88,17 @@ export const CardText = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  height: 60px;
+  height: 40px;
   @media (max-width: 600px) {
     font-size: 0.9rem;
   }
 `
 
 export const ButtonContainer = styled.div`
-  padding: 0px 0 0px 0;
-  margin: 0 5px;
+  padding: 1px 0;
+  margin: 0 px;
   border: none;
   display: flex;
   justify-content: space-between;

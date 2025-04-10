@@ -4,8 +4,6 @@ import Button from "components/Button/Button"
 import axios from "axios"
 import { Card, CardTitle } from "./CreateServiceForm.styles"
 
-
-
 interface Category {
   id: number
   description: string
@@ -75,56 +73,56 @@ const CreateServiceForm: React.FC = () => {
     }
   }
   return (
-    <Card>  
-    <form onSubmit={handleSubmit}>
-      <MyInput
-        name="serviceName"
-        label="Service Name"
-        type="text"
-        placeholder="Enter service name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        required
-      />
-      <MyInput
-        name="serviceDescription"
-        label="Service Description"
-        type="textarea"
-        placeholder="Enter service description"
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-        required
-      />
-      {error && <span style={{ color: "red" }}>{error}</span>}
+    <Card>
+      <form onSubmit={handleSubmit}>
+        <MyInput
+          name="serviceName"
+          label="Service Name"
+          type="text"
+          placeholder="Enter service name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          required
+        />
+        <MyInput
+          name="serviceDescription"
+          label="Service Description"
+          type="textarea"
+          placeholder="Enter service description"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          required
+        />
+        {error && <span style={{ color: "red" }}>{error}</span>}
 
-      <MyInput
-        name="image"
-        label="Image"
-        type="text"
-        placeholder="Enter URL for photo"
-        value={image}
-        onChange={e => setImage(e.target.value)}
-        required
-      />
-      <select
-        name=""
-        id=""
-        value={category}
-        onChange={e => setCategory(e.target.value)}
-      >
-        {categories.map(c => (
-          <option key={c.id} value={c.id}>
-            {c.title}
-          </option> // Добавлен ключ
-        ))}
-      </select>
-      <Button text="Send" type="submit" disabled={isSubmitting} />
-      {successMessage && (
-        <div style={{ color: "green", marginTop: "10px" }}>
-          {successMessage}
-        </div>
-      )}
-    </form>
+        <MyInput
+          name="image"
+          label="Image"
+          type="text"
+          placeholder="Enter URL for photo"
+          value={image}
+          onChange={e => setImage(e.target.value)}
+          required
+        />
+        <select
+          name=""
+          id=""
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+        >
+          {categories.map(c => (
+            <option key={c.id} value={c.id}>
+              {c.title}
+            </option> 
+          ))}
+        </select>
+        <Button text="Send" type="submit" disabled={isSubmitting} />
+        {successMessage && (
+          <div style={{ color: "green", marginTop: "10px" }}>
+            {successMessage}
+          </div>
+        )}
+      </form>
     </Card>
   )
 }

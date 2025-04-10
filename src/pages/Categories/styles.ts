@@ -10,8 +10,12 @@ export const PageContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   padding: 50px;
   color: white;
+  @media (max-width: 768px) {
+    padding: 10px; /* Еще меньше отступы для мобильных устройств */
+  }
 `
 export const CategoriesGrid = styled.div`
   display: grid;

@@ -3,11 +3,9 @@ import styled from "@emotion/styled"
 export const Card = styled.div`
   width: 100%;
   text-align: center;
-
-  border-radius: 8px;
   padding: 30px;
   margin: 10px auto;
-  background-color: #ffffff;
+
  
 `
 export const CardTitle = styled.h2`
