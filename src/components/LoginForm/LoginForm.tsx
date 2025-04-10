@@ -38,7 +38,7 @@ export default function LoginForm() {
     setLoginError("")
     if (!validateEmail(email)) {
       setEmailError(
-        "Email must contain '@', at least one letter, and be at least 8 characters long.",
+        "Incorrect Email",
       )
       return
     }
@@ -50,11 +50,11 @@ export default function LoginForm() {
       const res = await axios.post("/api/auth/login", { email, password })
       localStorage.setItem("accessToken", res.data.accessToken)
       login()
-      navigate("/profile-user")
+      navigate("/")
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         if (error.response.status === 401 || error.response.status === 404) {
-          setLoginError("User not registered or invalid credentials.")
+          setLoginError("User not fond")
         } else {
           setLoginError("An error occurred. Please try again.")
         }
@@ -91,7 +91,7 @@ export default function LoginForm() {
                 setPassword(e.target.value)
                 setPasswordError("")
               }}
-              error={passwordError}
+              
             />
             <PasswordToggleButton
               type="button"

@@ -73,14 +73,14 @@ export default function RegistrationForm() {
 
     if (!validateEmail(email)) {
       setEmailError(
-        "Email must contain '@', at least one letter, and be at least 8 characters long.",
+        "Invalid email.",
       )
       return
     }
     console.log(`Password entered: ${password}`)
     if (!validatePassword(password)) {
       setPasswordError(
-        "Password must be at least 8 characters long, contain at least one uppercase letter, one number, and one special character.",
+        "The password does not meet security requirements",
       )
       return
     }
