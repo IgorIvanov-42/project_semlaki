@@ -35,7 +35,7 @@ export const Logo = styled(NavLink)`
   margin-right: 20px;
 `
 export const Title = styled.h1`
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 `
 export const NavContainer = styled.div`

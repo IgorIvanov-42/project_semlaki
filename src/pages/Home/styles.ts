@@ -6,15 +6,15 @@ export const PageContainer = styled.div`
   align-items: center;
   flex-direction: column;
   //height: 100%;
+  width: 100%; 
   min-height: 100vh;
-  width: 100vw;
+  
   background-image: url("/src/assets/3.png");
-  background-size: cover;
+  background-size: cover ;
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 10px;
   overflow: hidden;
-
 `
 
 export const ContentWrapper = styled.div`
@@ -25,11 +25,9 @@ export const ContentWrapper = styled.div`
   width: 80%;
   max-width: 1200px;
   padding-bottom: 20px;
- 
 `
 export const DescriptionText = styled.p`
-
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   padding: 10px;
   color: #555;
   font-size: 2rem;
@@ -37,8 +35,7 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   text-align: center;
   margin: 20px 0 10px 0px;
 
-
- // text-align: center;
+  // text-align: center;
   //font-size: 30px;
   //color: black;
   //background: rgba(222, 216, 216, 0.6);
@@ -66,8 +63,7 @@ export const SearchResultsContainer = styled.div`
   max-width: 100%;
 `
 export const SectionTitle = styled.h3`
-
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   padding: 10px;
   color: #555;
   font-size: 2rem;
@@ -75,9 +71,8 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   text-align: center;
   margin: 20px 0 10px 0px;
 
-
-// font-size: 22px;
- // color: black;
+  // font-size: 22px;
+  // color: black;
   //text-align: center;
   //margin-top: 40px;
 `
