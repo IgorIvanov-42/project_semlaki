@@ -2,9 +2,9 @@ import styled from "@emotion/styled"
 export const LogoutButton = styled.button`
   background: transparent;
   border: none;
-  padding: 0;
-  width: 20px; 
- height: 30px;
+  padding: 5px;
+  width: 25px; 
+ height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;

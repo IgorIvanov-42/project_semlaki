@@ -11,7 +11,7 @@ const Logout: React.FC = () => {
       <img
         src={logoutIcon}
         alt="Logout"
-        style={{ width: "35px", height: "35px" }}
+        style={{ width: "38px", height: "38px" ,}}
       />
     </LogoutButton>
   )

@@ -41,7 +41,7 @@ export const Title = styled.h2`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   padding: 10px;
   color: #555;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
   margin: 20px 0 10px 0px;

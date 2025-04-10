@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 export const ButtonWrapper = styled.button<ButtonProps>`
   margin: 10px;
-  padding: 12px 20px;
+  padding: 5px 10px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 

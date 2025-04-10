@@ -1,11 +1,20 @@
-import MyInput from "components/MyInput/MyInput"
 import { useState } from "react"
 import { Container } from "./RegistrationForm.styles"
 import Button from "components/Button/Button"
 import { Link, useNavigate } from "react-router-dom"
 import { Title } from "components/RegistrationForm/RegistrationForm.styles"
 import { FormWrapper } from "components/MyForm/MyForm.styles"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+
 import axios from "axios"
+
+import {
+  ErrorMessage,
+  InputContainer,
+  PasswordToggleButton,
+} from "components/MyInput/MyInput.styles"
+import MyInput from "components/MyInput/MyInput"
 
 export default function RegistrationForm() {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
@@ -14,11 +23,14 @@ export default function RegistrationForm() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [emailError, setEmailError] = useState("")
   const [passwordError, setPasswordError] = useState("")
   const [confirmPasswordError, setConfirmPasswordError] = useState("")
   const [firstNameError, setFirstNameError] = useState<string>("")
   const [lastNameError, setLastNameError] = useState<string>("")
+
   const [alreadyRegisteredError, setAlreadyRegisteredError] =
     useState<string>("")
   const navigate = useNavigate()
@@ -43,6 +55,7 @@ export default function RegistrationForm() {
     setConfirmPasswordError("")
     setFirstNameError("")
     setLastNameError("")
+    setEmailError("")
     setAlreadyRegisteredError("")
     if (!agreeToTerms) {
       alert("Please accept the terms of service.")
@@ -56,6 +69,7 @@ export default function RegistrationForm() {
       setLastNameError("Last Name is required.")
       return
     }
+    setEmailError("")
 
     if (!validateEmail(email)) {
       setEmailError(
@@ -111,14 +125,7 @@ export default function RegistrationForm() {
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
           />
-          {firstNameError && (
-            <span
-              style={{ color: "black", display: "block", minHeight: "20px" }}
-            >
-              {" "}
-              {firstNameError}{" "}
-            </span>
-          )}
+          {firstNameError && <ErrorMessage>{firstNameError}</ErrorMessage>}
           <MyInput
             label={"Enter your Last Name"}
             placeholder={"e.g. Last Name"}
@@ -127,23 +134,10 @@ export default function RegistrationForm() {
             value={lastName}
             onChange={e => setLastName(e.target.value)}
           />
-          {lastNameError && (
-            <span
-              style={{ color: "black", display: "block", minHeight: "20px" }}
-            >
-              {" "}
-              {lastNameError}{" "}
-            </span>
-          )}
+          {lastNameError && <ErrorMessage>{lastNameError}</ErrorMessage>}
           {alreadyRegisteredError && (
-            <span
-              style={{ color: "black", display: "block", minHeight: "20px" }}
-            >
-              {" "}
-              {alreadyRegisteredError}{" "}
-            </span>
+            <ErrorMessage>{alreadyRegisteredError}</ErrorMessage>
           )}
-
           <MyInput
             label={"Enter your Email"}
             placeholder={"e.g. user@example.com"}
@@ -152,34 +146,51 @@ export default function RegistrationForm() {
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-          {passwordError && (
-            <span
-              style={{ color: "black", display: "block", minHeight: "20px" }}
+          <InputContainer>
+            <MyInput
+              label={"Password"}
+              placeholder={"The password does not meet security requirements."}
+              type={showPassword ? "text" : "password"}
+              name={"password"}
+              value={password}
+              onChange={e => {
+                setPassword(e.target.value)
+                setPasswordError("")
+              }}
+            />
+            <PasswordToggleButton
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
             >
-              {passwordError}
-            </span>
-          )}
-          <MyInput
-            label={"Password"}
-            placeholder={"The password does not meet security requirements."}
-            type={"password"}
-            name={"password"}
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-          {confirmPasswordError && (
-            <span style={{ color: "red", display: "block", minHeight: "20px" }}>
-              {confirmPasswordError}
-            </span>
-          )}
-          <MyInput
-            label={"Confirm Password"}
-            placeholder={"Confirm your password"}
-            type={"password"}
-            name={"confirmPassword"}
-            value={confirmPassword}
-            onChange={e => setConfirmPassword(e.target.value)}
-          />
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            </PasswordToggleButton>{" "}
+          </InputContainer>
+          {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
+
+          <InputContainer>
+            <MyInput
+              label={"Confirm Password"}
+              placeholder={"Confirm your password"}
+              type={showConfirmPassword ? "text" : "password"}
+              name={"confirmPassword"}
+              value={confirmPassword}
+              onChange={e => {
+                setConfirmPassword(e.target.value)
+                setConfirmPasswordError("")
+              }}
+            />
+            <PasswordToggleButton
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              <FontAwesomeIcon
+                icon={showConfirmPassword ? faEyeSlash : faEye}
+              />
+            </PasswordToggleButton>
+            {confirmPasswordError && (
+              <ErrorMessage>{confirmPasswordError}</ErrorMessage>
+            )}
+          </InputContainer>
+
           <label>
             <input
               type="checkbox"

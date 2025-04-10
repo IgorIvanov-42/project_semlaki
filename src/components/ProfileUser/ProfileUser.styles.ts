@@ -3,7 +3,6 @@ export const PageBackground = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: #f0f0f0;
   background-image: url("/src/assets/3.png");
   background-size: cover;
   background-position: center;
@@ -14,7 +13,7 @@ export const PageBackground = styled.div`
   overflow: hidden;
   padding-top: 40px;
   overflow: hidden;
-  padding-top: 40px;
+  padding-top: 5px;
   @media (max-width: 768px) {
     padding-top: 20px;
   }
@@ -50,12 +49,11 @@ export const FlexContainer = styled.div`
 `
 export const Title = styled.h1`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  padding: 5px;
   color: #555;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
-  margin: 20px 0 10px 0px;
 
   @media (max-width: 768px) {
     font-size: 1.25rem;
@@ -104,6 +102,7 @@ export const Card = styled.div`
   }
 `
 export const InfoCard = styled(Card)`
+  font-size: 0.8rem;
   background-color: rgba(250, 250, 250, 0.7);
 `
 export const ServiceCard = styled(Card)`
@@ -134,9 +133,21 @@ export const Paragraph = styled.p`
   max-width: 600px;
   overflow-wrap: break-word;
   @media (max-width: 768px) {
-    font-size: 14px; 
+    font-size: 14px;
   }
   @media (max-width: 480px) {
-    font-size: 12px; 
+    font-size: 12px;
   }
+`
+export const UserInfo = styled.div`
+  margin: 50px 0;
+  display: flex;
+  text-align: center; /* Центрирование текста */
+  justify-content: center;
+`
+export const UserDetail = styled.p`
+  font-size: 1.1rem;
+  color: #333;
+  margin: 5px;
+  font-weight: 500;
 `
