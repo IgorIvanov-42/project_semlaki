@@ -1,54 +1,57 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import {
   CardContainer,
   Card,
   CardTitle,
   CardDescription,
-  MoreDetails,
   CardImage,
 } from "./CardServices.styles"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import Button from "components/Button/Button"
 
-const services = [
-  {
-    title: "Translation services",
-    description: "Find a translator for your documents and communication needs.",
-    path: "/translation-service",
-    text: "More details",
-    image: "/src/assets/background.jpg",
-  },
-  {
-    title: "Technical services",
-    description: "Need tech support? Find a specialist for repairs and setups.",
-    path: "/technical-service",
-    text: "More details",
-    image: "/src/assets/services.webp",
-  },
-  {
-    title: "Childcare",
-    description: "Qualified professionals to take care of your children.",
-    path: "/childcare",
-    text: "More details",
-    image: "/src/assets/Children1.jpg",
-  },
-  {
-    title: "Tutoring",
-    description: "Find a tutor to help with studies and educational needs.",
-    path: "/tutoring",
-    text: "More details",
-    image: "/src/assets/images.jpg",
-  },
-]
+interface Service {
+  id: number
+  title: string
+  description: string
+  photo: string
+}
 
 const CardServices: React.FC = () => {
+  const [services, setServices] = useState<Service[]>([])
+  const { categoryId } = useParams() // Получаем categoryId из URL
+
+  useEffect(() => {
+    async function fetchServices() {
+      try {
+        const res = await axios.get(`/api/services/category/${categoryId}`)
+        setServices(res.data)
+      } catch (error) {
+        console.error("Error fetching services:", error)
+      }
+    }
+
+    fetchServices()
+  }, [categoryId]) // Перезапуск запроса при изменении categoryId
+
   return (
     <CardContainer>
-      {services.slice(0, 4).map((service, index) => (
-        <Link key={index} to={service.path} style={{ textDecoration: "none", color: "inherit" }}>
+      {services.map(service => (
+        <Link
+          key={service.id}
+          to={`/category/${categoryId}/services/${service.id}`} // путь
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <Card>
-            <CardImage src={service.image} alt={service.title} />
             <CardTitle>{service.title}</CardTitle>
-            <CardDescription>{service.description}</CardDescription>
-            <MoreDetails>{service.text}</MoreDetails>
+            <CardImage src={service.photo} alt={service.title} />
+
+            <CardDescription>
+              {service.description.length > 120
+                ? `${service.description.slice(0, 120)}...`
+                : service.description}
+            </CardDescription>
+            <Button text="More Details" />
           </Card>
         </Link>
       ))}
@@ -57,5 +60,3 @@ const CardServices: React.FC = () => {
 }
 
 export default CardServices
-
-

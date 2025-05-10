@@ -2,22 +2,40 @@ import styled from "@emotion/styled"
 
 export const PageContainer = styled.div`
   width: 100%;
-  height: 100vh;
-  background: url("/src/assets/MG.JPG") no-repeat center center/cover;
+  min-height: 100vh;
+  padding-top: 100px; /* отступ от фиксированного хедера */
+  padding-bottom: 80px; /* отступ от футера */
+  background: url("/src/assets/3.png") no-repeat center center/cover;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   padding: 50px;
   color: white;
+  @media (max-width: 768px) {
+    padding: 10px; /* Еще меньше отступы для мобильных устройств */
+  }
 `
 export const CategoriesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 320px);
+  grid-template-columns: repeat(4, 1fr); /* Гарантированно 4 колонки */
   gap: 20px;
-  max-width: calc(4 * 320px + 3 * 20px);
+  max-width: 1300px; /* Ограничение ширины */
   width: 100%;
   justify-content: center;
   margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* При уменьшении экрана 2 карточки в ряд */
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 export const CategoryCard = styled.div`

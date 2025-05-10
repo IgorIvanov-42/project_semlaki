@@ -6,31 +6,47 @@ import Categories from "pages/Categories/Categories"
 import Services from "pages/Services/Services"
 import RegistrationForm from "components/RegistrationForm/RegistrationForm"
 import LoginForm from "components/LoginForm/LoginForm"
-import TranslationService from "components/ServiceOffers/TranslationService/TranslationServices"
 import ForgotPasswordForm from "components/ForgotPasswordForm/ForgotPasswordForm"
-import TechnicalService from "components/ServiceOffers/TechnicalService/TechnicalService"
-import ChildcareService from "components/ServiceOffers/ChildcareService/ChildCareService"
-import TutoringService from "components/ServiceOffers/TutoringService/TutoringService"
+import Terms from "components/Terms/Terms"
+import ProfileUser from "components/ProfileUser/ProfileUser"
+import { AuthProvider } from "components/AuthProvider/AuthProvider"
+import ProtectedRoute from "components/ProtectedRoute/ProtectedRoute"
+import Contacts from "pages/Contacts/Contacts"
+import ServicePage from "pages/ServicePage/ServicePage"
+import MyServices from "components/MyServices/MyServices"
+
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <GlobalStyles />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegistrationForm />} />
-          <Route path="/forgot-password" element={<ForgotPasswordForm />} />
-          <Route path="/translation-service" element={<TranslationService />} />
-          <Route path="/technical-service" element={<TechnicalService />} />
-          <Route path="/childcare" element={<ChildcareService />} />
-          <Route path="/tutoring" element={<TutoringService />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <GlobalStyles />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route
+              path="/category/:categoryId/services"
+              element={<Services />}
+            />
+            <Route
+              path="/category/:categoryId/services/:serviceId"
+              element={<ServicePage />}
+            />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegistrationForm />} />
+            <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route
+              path="/profile-user"
+              element={<ProtectedRoute element={<ProfileUser />} />}
+            />
+            <Route path="/my-services" element={<MyServices />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
